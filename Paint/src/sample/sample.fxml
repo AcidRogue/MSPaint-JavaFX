@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="vBox" prefHeight="791.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <GridPane prefHeight="90.0" prefWidth="1122.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="146.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="10.0" prefWidth="98.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="697.0" minWidth="10.0" prefWidth="58.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="746.0" minWidth="10.0" prefWidth="307.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="746.0" minWidth="6.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="576.0" minWidth="10.0" prefWidth="460.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.halignment="RIGHT">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="3.0" right="-3.0" top="3.0" />
+               </GridPane.margin>
+            </Separator>
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="3.0" right="-3.0" top="3.0" />
+               </GridPane.margin>
+            </Separator>
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="3.0" right="-3.0" top="3.0" />
+               </GridPane.margin>
+            </Separator>
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="3.0" right="-3.0" top="3.0" />
+               </GridPane.margin>
+            </Separator>
+            <Text disable="true" fill="#000000ba" strokeType="OUTSIDE" strokeWidth="0.0" text="Image" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Text disable="true" fill="#000000ba" strokeType="OUTSIDE" strokeWidth="0.0" text="Tools" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Text disable="true" fill="#000000ba" strokeType="OUTSIDE" strokeWidth="0.0" text="Shapes" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Text disable="true" fill="#000000ba" strokeType="OUTSIDE" strokeWidth="0.0" text="Colors" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="3.0" right="-3.0" top="3.0" />
+               </padding>
+            </Separator>
+            <GridPane prefHeight="84.0" prefWidth="68.0" GridPane.columnIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.0" minHeight="0.0" prefHeight="17.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox fx:id="hboxPencil" alignment="CENTER" prefHeight="11.0" prefWidth="39.0" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fx:id="pencil">
+                           <image>
+                              <Image url="@../images/pencil.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="6.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox fx:id="hboxText" alignment="CENTER" prefHeight="11.0" prefWidth="39.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="6.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <children>
+                        <ImageView fx:id="text">
+                           <image>
+                              <Image url="@../images/letterA.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hboxRubber" alignment="CENTER" prefHeight="11.0" prefWidth="39.0" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fx:id="rubber">
+                           <image>
+                              <Image url="@../images/rubber.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="6.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox fx:id="hboxDropper" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="6.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <children>
+                        <ImageView fx:id="dropper">
+                           <image>
+                              <Image url="@../images/dripper.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="2">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ChoiceBox fx:id="btnBrushType" prefHeight="25.0" prefWidth="45.0" value="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <HBox fx:id="hboxBrush" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                     <children>
+                        <ImageView fx:id="brush">
+                           <image>
+                              <Image url="@../images/brush.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="2.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets bottom="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </GridPane>
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="3.0" right="-3.0" top="3.0" />
+               </GridPane.margin>
+            </Separator>
+            <GridPane GridPane.columnIndex="4">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="14.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="10.0" prefWidth="54.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="22.0" minWidth="10.0" prefWidth="13.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <GridPane fx:id="btnSizeGridBox" prefHeight="39.0" prefWidth="54.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="21.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="33.0" fitWidth="36.0" style="-fx-translate-y: 0.5;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@../images/size.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="2.0" />
+                           </GridPane.margin>
+                        </Text>
+                     </children>
+                  </GridPane>
+                  <ChoiceBox fx:id="btnSize" opacity="0.0" prefHeight="58.0" prefWidth="67.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane prefHeight="90.0" prefWidth="343.0" GridPane.columnIndex="5" GridPane.halignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="47.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="47.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="265.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="59.0" minHeight="0.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="7.0" prefHeight="7.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color 1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <GridPane fx:id="gridColors" prefHeight="60.0" prefWidth="270.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox fx:id="hbox1" style="-fx-border-color: gray;">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(0,0,0);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox2" style="-fx-border-color: gray;" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(127,127,127);">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Pane>
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox3" style="-fx-border-color: gray;" GridPane.columnIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(136,0,21);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox4" style="-fx-border-color: gray;" GridPane.columnIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(255,0,0);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox5" style="-fx-border-color: gray;" GridPane.columnIndex="4">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="20.0" prefWidth="25.0" style="-fx-border-color: white; -fx-background-color: rgb(255,127,39);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox6" style="-fx-border-color: gray;" GridPane.columnIndex="5">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(255,242,0);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox8" style="-fx-border-color: gray;" GridPane.columnIndex="7">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(0,162,232);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox9" style="-fx-border-color: gray;" GridPane.columnIndex="8">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(63,72,204);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox10" style="-fx-border-color: gray;" GridPane.columnIndex="9">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(163,73,164);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox11" style="-fx-border-color: gray;" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(255,255,255);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox12" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(195,195,195);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox13" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(185,122,87);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox14" style="-fx-border-color: gray;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(255,174,201);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox7" style="-fx-border-color: gray;" GridPane.columnIndex="6">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(34,177,16);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox15" style="-fx-border-color: gray;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(255,201,14);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox18" style="-fx-border-color: gray;" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(153,217,234);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox19" style="-fx-border-color: gray;" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(112,146,190);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox16" style="-fx-border-color: gray;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(239,228,176);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox20" style="-fx-border-color: gray;" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(200,191,231);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="hbox17" style="-fx-border-color: gray;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white; -fx-background-color: rgb(181,230,29);" />
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <HBox fx:id="hboxDefColor1" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Pane fx:id="defColor1" prefHeight="53.0" prefWidth="65.0" style="-fx-border-color: gray; -fx-background-color: rgb(0,0,0);" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hboxDefColor2" prefHeight="54.0" prefWidth="42.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Pane fx:id="defColor2" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="3">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox fx:id="hboxLine" prefHeight="34.0" prefWidth="154.0">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="54.0">
+                           <image>
+                              <Image url="@../images/line.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+      <AnchorPane prefHeight="676.0" prefWidth="1251.0" style="-fx-background-color: #d9e6ff;">
+         <children>
+            <Separator prefHeight="0.0" prefWidth="1251.0" AnchorPane.bottomAnchor="673.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="584.0" prefWidth="1122.0" style="-fx-background-color: white;">
+               <effect>
+                  <DropShadow color="#0000008c" height="23.97" offsetX="5.0" offsetY="5.0" radius="12.9675" width="29.9" />
+               </effect>
+               <children>
+                  <Canvas fx:id="drawingCanvas" height="584.0" width="1122.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+  </children>
+</VBox>
