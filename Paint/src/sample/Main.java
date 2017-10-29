@@ -3,6 +3,7 @@ package sample;
 /*
 MS Paint like project made for educational purposes only
 Author: Kalin Tomanov
+Email: kalin_tomanov@abv.bg
  */
 
 import javafx.application.Application;

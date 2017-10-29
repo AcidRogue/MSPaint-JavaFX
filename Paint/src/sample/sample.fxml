@@ -123,7 +123,7 @@
                <children>
                   <HBox fx:id="hboxPencil" alignment="CENTER" prefHeight="11.0" prefWidth="39.0" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fx:id="pencil">
+                        <ImageView>
                            <image>
                               <Image url="@../images/pencil.png" />
                            </image>
@@ -138,7 +138,7 @@
                         <Insets bottom="10.0" left="6.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                      <children>
-                        <ImageView fx:id="text">
+                        <ImageView>
                            <image>
                               <Image url="@../images/letterA.png" />
                            </image>
@@ -147,7 +147,7 @@
                   </HBox>
                   <HBox fx:id="hboxRubber" alignment="CENTER" prefHeight="11.0" prefWidth="39.0" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fx:id="rubber">
+                        <ImageView>
                            <image>
                               <Image url="@../images/rubber.png" />
                            </image>
@@ -162,7 +162,7 @@
                         <Insets bottom="10.0" left="6.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                      <children>
-                        <ImageView fx:id="dropper">
+                        <ImageView>
                            <image>
                               <Image url="@../images/dripper.png" />
                            </image>
@@ -251,7 +251,7 @@
                   <ChoiceBox fx:id="btnSize" opacity="0.0" prefHeight="58.0" prefWidth="67.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <GridPane prefHeight="90.0" prefWidth="343.0" GridPane.columnIndex="5" GridPane.halignment="CENTER">
+            <GridPane prefHeight="90.0" prefWidth="343.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="47.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="47.0" />
@@ -537,32 +537,53 @@
                      </padding>
                   </HBox>
                </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
             </GridPane>
             <GridPane GridPane.columnIndex="3">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="75.0" minWidth="10.0" prefWidth="22.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="55.0" prefWidth="55.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="55.0" prefWidth="54.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="55.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="124.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="22.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <HBox fx:id="hboxLine" prefHeight="34.0" prefWidth="154.0">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
+                  <HBox fx:id="hboxLine" prefHeight="43.0" prefWidth="34.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="54.0">
+                        <ImageView fitHeight="54.0" fitWidth="54.0">
                            <image>
                               <Image url="@../images/line.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
                      </children>
                   </HBox>
+                  <HBox fx:id="hboxSquare" prefHeight="61.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView>
+                           <image>
+                              <Image url="@../images/square.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="2.0" top="1.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
