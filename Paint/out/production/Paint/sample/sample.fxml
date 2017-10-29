@@ -568,7 +568,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxSquare" prefHeight="61.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <HBox fx:id="hboxRectangle" prefHeight="61.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <ImageView>
                            <image>

@@ -54,7 +54,7 @@ public class Controller {
     @FXML
     private HBox hboxLine;
     @FXML
-    private HBox hboxSquare;
+    private HBox hboxRectangle;
     //endregion
     //region colors
     @FXML
@@ -128,7 +128,7 @@ public class Controller {
 
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
-        shapes = new HBox[]{hboxLine, hboxSquare};
+        shapes = new HBox[]{hboxLine, hboxRectangle};
 
         defColors = new HBox[]{hboxDefColor1, hboxDefColor2};
 
@@ -172,11 +172,14 @@ public class Controller {
         }
     }
 
-
+    double xCor;
+    double yCor;
     /*
     Logic for when the mouse is pressed.
      */
     private void handleDrawingCanvas() {
+
+
         drawingCanvas.setOnMousePressed(event -> {
             setSize();
             gc.setLineWidth(size);
@@ -186,7 +189,10 @@ public class Controller {
                 gc.setStroke(secondaryColor);
             }
             gc.beginPath();
+            xCor = event.getX();
+            yCor = event.getY();
             gc.lineTo(event.getX(), event.getY());
+
         });
 
 
@@ -194,7 +200,7 @@ public class Controller {
 
          */
         drawingCanvas.setOnMouseDragged(event -> {
-            if (shapePressed != hboxLine) {
+            if (shapePressed != hboxLine && shapePressed != hboxRectangle) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
             }
@@ -207,6 +213,21 @@ public class Controller {
         drawingCanvas.setOnMouseReleased(event -> {
             if (shapePressed == hboxLine) {
                 gc.lineTo(event.getX(), event.getY());
+                gc.stroke();
+            }
+            else if(shapePressed == hboxRectangle){
+                gc.moveTo(xCor,yCor);
+                gc.lineTo(event.getX(), yCor);
+
+                gc.moveTo(xCor,yCor);
+                gc.lineTo(xCor, event.getY());
+
+                gc.moveTo(event.getX(), yCor);
+                gc.lineTo(event.getX(), event.getY());
+
+                gc.moveTo(xCor, event.getY());
+                gc.lineTo(event.getX(), event.getY());
+
                 gc.stroke();
             }
         });
