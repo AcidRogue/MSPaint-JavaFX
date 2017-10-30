@@ -583,7 +583,14 @@
                         <Insets />
                      </GridPane.margin>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <HBox fx:id="hboxCircle" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="55.0" fitWidth="53.0">
+                           <image>
+                              <Image url="@../images/circle.png" />
+                           </image>
+                        </ImageView>
+                     </children></HBox>
                </children>
             </GridPane>
          </children>
