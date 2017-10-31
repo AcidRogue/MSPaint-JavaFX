@@ -144,7 +144,7 @@ public class Controller {
         handleOnMouseOverColors();
         handleOnMouseExitedColors();
         handleDrawingCanvas();
-        defColorsOnPressed();
+        handleDefColors();
         handleShapes();
     }
 
@@ -162,15 +162,18 @@ public class Controller {
         }
     }
 
-    double xCor;
-    double yCor;
+    //on click coordinates
+    private double xCorA;
+    private double yCorA;
+
+    //on release coordinates
+    private double xCorB;
+    private double yCorB;
 
     /*
     Logic for when the mouse is pressed.
      */
     private void handleDrawingCanvas() {
-
-
         drawingCanvas.setOnMousePressed(event -> {
             setSize();
             gc.setLineWidth(size);
@@ -180,15 +183,12 @@ public class Controller {
                 gc.setStroke(secondaryColor);
             }
             gc.beginPath();
-            xCor = event.getX();
-            yCor = event.getY();
+            xCorA = event.getX();
+            yCorA = event.getY();
             gc.lineTo(event.getX(), event.getY());
         });
 
 
-        /*
-
-         */
         drawingCanvas.setOnMouseDragged(event -> {
             if (shapePressed != hboxLine && shapePressed != hboxRectangle && shapePressed != hboxCircle) {
                 gc.lineTo(event.getX(), event.getY());
@@ -201,31 +201,34 @@ public class Controller {
         Handle shapes.
          */
         drawingCanvas.setOnMouseReleased(event -> {
+            xCorB = event.getX();
+            yCorB = event.getY();
+
+            double width = xCorB - xCorA;
+            double height = yCorB - yCorA;
+
+            if (width < 0) {
+                width = -width;
+                xCorA = xCorA - width;
+            }
+            if (height < 0) {
+                height = -height;
+                yCorA = yCorA - height;
+            }
+            
             if (shapePressed == hboxLine) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
             } else if (shapePressed == hboxRectangle) {
-                gc.moveTo(xCor, yCor);
-                gc.lineTo(event.getX(), yCor);
-
-                gc.moveTo(xCor, yCor);
-                gc.lineTo(xCor, event.getY());
-
-                gc.moveTo(event.getX(), yCor);
-                gc.lineTo(event.getX(), event.getY());
-
-                gc.moveTo(xCor, event.getY());
-                gc.lineTo(event.getX(), event.getY());
-
-                gc.stroke();
+                gc.strokeRect(xCorA, yCorA, width, height);
             } else if (shapePressed == hboxCircle) {
-                gc.strokeOval(xCor, yCor, event.getX() - xCor, event.getY() - yCor);
+                gc.strokeOval(xCorA, yCorA, width, height);
             }
         });
     }
 
     /*
-
+    Handle shapes.
      */
     private void handleShapes() {
         for (HBox shape : shapes) {
@@ -233,7 +236,6 @@ public class Controller {
                 if (shapePressed != null) {
                     shapePressed.setStyle("");
                 }
-
                 shapePressed = shape;
                 shapePressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgb(97, 167, 237, 0.3)");
             });
@@ -288,14 +290,16 @@ public class Controller {
         }
         for (HBox shape : shapes) {
             shape.setOnMouseEntered(event -> {
-                if(shape != shapePressed) {
-                    shape.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgb(97, 167, 237, 0.3)");
+                if (shape != shapePressed) {
+                    shape.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgb(97, 167, 237, 0.1)");
                 }
             });
         }
         for (HBox dc : defColors) {
             dc.setOnMouseEntered(event -> {
-                dc.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgb(97, 167, 237, 0.3)");
+                if (dc != defColorPressed) {
+                    dc.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgb(97, 167, 237, 0.1)");
+                }
             });
         }
         btnSize.setOnMouseEntered(event -> {
@@ -341,7 +345,7 @@ public class Controller {
     /*
     Handles the currently pressed def color.
      */
-    private void defColorsOnPressed() {
+    private void handleDefColors() {
         for (HBox dc : defColors) {
             dc.setOnMousePressed(event -> {
                 if (dc != defColorPressed) {

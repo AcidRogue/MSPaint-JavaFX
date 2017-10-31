@@ -570,12 +570,12 @@
                   </HBox>
                   <HBox fx:id="hboxRectangle" prefHeight="61.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <ImageView>
+                        <ImageView fitHeight="54.0" fitWidth="55.0">
                            <image>
                               <Image url="@../images/square.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="2.0" top="1.0" />
+                              <Insets />
                            </HBox.margin>
                         </ImageView>
                      </children>
@@ -585,7 +585,7 @@
                   </HBox>
                   <HBox fx:id="hboxCircle" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="55.0" fitWidth="53.0">
+                        <ImageView fitHeight="54.0" fitWidth="53.0">
                            <image>
                               <Image url="@../images/circle.png" />
                            </image>
