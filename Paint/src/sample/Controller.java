@@ -57,6 +57,8 @@ public class Controller {
     private HBox hboxRectangle;
     @FXML
     private HBox hboxCircle;
+    @FXML
+    private HBox hboxTriangle;
     //endregion
     //region colors
     @FXML
@@ -130,7 +132,7 @@ public class Controller {
 
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
-        shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle};
+        shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle, hboxTriangle};
 
         defColors = new HBox[]{hboxDefColor1, hboxDefColor2};
 
@@ -162,6 +164,7 @@ public class Controller {
         }
     }
 
+
     //on click coordinates
     private double xCorA;
     private double yCorA;
@@ -169,7 +172,6 @@ public class Controller {
     //on release coordinates
     private double xCorB;
     private double yCorB;
-
     /*
     Logic for when the mouse is pressed.
      */
@@ -190,7 +192,7 @@ public class Controller {
 
 
         drawingCanvas.setOnMouseDragged(event -> {
-            if (shapePressed != hboxLine && shapePressed != hboxRectangle && shapePressed != hboxCircle) {
+            if (shapePressed != hboxLine && shapePressed != hboxRectangle && shapePressed != hboxCircle && shapePressed != hboxTriangle) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
             }
@@ -215,7 +217,7 @@ public class Controller {
                 height = -height;
                 yCorA = yCorA - height;
             }
-            
+
             if (shapePressed == hboxLine) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
@@ -223,6 +225,19 @@ public class Controller {
                 gc.strokeRect(xCorA, yCorA, width, height);
             } else if (shapePressed == hboxCircle) {
                 gc.strokeOval(xCorA, yCorA, width, height);
+            } else if (shapePressed == hboxTriangle){
+                gc.beginPath();
+
+                gc.moveTo(xCorA + (width / 2), yCorA);
+                gc.lineTo(xCorB, yCorB);
+
+                gc.moveTo(xCorA + (width / 2), yCorA);
+                gc.lineTo(xCorA, yCorB);
+
+                gc.moveTo(xCorA, yCorB);
+                gc.lineTo(xCorB, yCorB);
+
+                gc.stroke();
             }
         });
     }
