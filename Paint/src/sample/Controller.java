@@ -114,6 +114,8 @@ public class Controller {
 
     private GraphicsContext gc;
 
+    Shapes2D shapeDrawer;
+
     private HBox[] tools;
     private HBox[] shapes;
     private HBox[] defColors;
@@ -148,6 +150,7 @@ public class Controller {
         handleDrawingCanvas();
         handleDefColors();
         handleShapes();
+        shapeDrawer = new Shapes2D(gc);
     }
 
 
@@ -187,7 +190,7 @@ public class Controller {
             gc.beginPath();
             xCorA = event.getX();
             yCorA = event.getY();
-            gc.lineTo(event.getX(), event.getY());
+            gc.moveTo(event.getX(), event.getY());
         });
 
 
@@ -219,25 +222,13 @@ public class Controller {
             }
 
             if (shapePressed == hboxLine) {
-                gc.lineTo(event.getX(), event.getY());
-                gc.stroke();
+                shapeDrawer.drawLine(xCorB, yCorB);
             } else if (shapePressed == hboxRectangle) {
-                gc.strokeRect(xCorA, yCorA, width, height);
+                shapeDrawer.drawRectangle(xCorA, yCorA, width, height);
             } else if (shapePressed == hboxCircle) {
-                gc.strokeOval(xCorA, yCorA, width, height);
-            } else if (shapePressed == hboxTriangle){
-                gc.beginPath();
-
-                gc.moveTo(xCorA + (width / 2), yCorA);
-                gc.lineTo(xCorB, yCorB);
-
-                gc.moveTo(xCorA + (width / 2), yCorA);
-                gc.lineTo(xCorA, yCorB);
-
-                gc.moveTo(xCorA, yCorB);
-                gc.lineTo(xCorB, yCorB);
-
-                gc.stroke();
+                shapeDrawer.drawOval(xCorA, yCorA, width, height);
+            } else if (shapePressed == hboxTriangle) {
+                shapeDrawer.drawTriangle(xCorA, yCorA, xCorB, yCorB, width);
             }
         });
     }
