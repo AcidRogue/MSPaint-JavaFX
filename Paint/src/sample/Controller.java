@@ -131,6 +131,7 @@ public class Controller {
     @FXML
     void initialize() {
         gc = drawingCanvas.getGraphicsContext2D();
+        shapeDrawer = new Shapes2D(gc);
 
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
@@ -150,7 +151,7 @@ public class Controller {
         handleDrawingCanvas();
         handleDefColors();
         handleShapes();
-        shapeDrawer = new Shapes2D(gc);
+
     }
 
 
@@ -169,12 +170,12 @@ public class Controller {
 
 
     //on click coordinates
-    private double xCorA;
-    private double yCorA;
+    private double x1;
+    private double y1;
 
     //on release coordinates
-    private double xCorB;
-    private double yCorB;
+    private double x2;
+    private double y2;
     /*
     Logic for when the mouse is pressed.
      */
@@ -188,8 +189,8 @@ public class Controller {
                 gc.setStroke(secondaryColor);
             }
             gc.beginPath();
-            xCorA = event.getX();
-            yCorA = event.getY();
+            x1 = event.getX();
+            y1 = event.getY();
             gc.moveTo(event.getX(), event.getY());
         });
 
@@ -206,29 +207,20 @@ public class Controller {
         Handle shapes.
          */
         drawingCanvas.setOnMouseReleased(event -> {
-            xCorB = event.getX();
-            yCorB = event.getY();
+            x2 = event.getX();
+            y2 = event.getY();
 
-            double width = xCorB - xCorA;
-            double height = yCorB - yCorA;
-
-            if (width < 0) {
-                width = -width;
-                xCorA = xCorA - width;
-            }
-            if (height < 0) {
-                height = -height;
-                yCorA = yCorA - height;
-            }
+            double width = x2 - x1;
+            double height = y2 - y1;
 
             if (shapePressed == hboxLine) {
-                shapeDrawer.drawLine(xCorB, yCorB);
+                shapeDrawer.drawLine(x2, y2);
             } else if (shapePressed == hboxRectangle) {
-                shapeDrawer.drawRectangle(xCorA, yCorA, width, height);
+                shapeDrawer.drawRectangle(x1, y1, width, height);
             } else if (shapePressed == hboxCircle) {
-                shapeDrawer.drawOval(xCorA, yCorA, width, height);
+                shapeDrawer.drawOval(x1, y1, width, height);
             } else if (shapePressed == hboxTriangle) {
-                shapeDrawer.drawTriangle(xCorA, yCorA, xCorB, yCorB, width);
+                shapeDrawer.drawTriangle(x1, y1, x2, y2, width);
             }
         });
     }

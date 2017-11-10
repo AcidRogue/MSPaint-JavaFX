@@ -15,10 +15,26 @@ public class Shapes2D {
     }
 
     public void drawOval(double x1, double y1, double width, double height){
+        if (width < 0) {
+            width = -width;
+            x1 = x1 - width;
+        }
+        if (height < 0) {
+            height = -height;
+            y1 = y1 - height;
+        }
         gc.strokeOval(x1, y1, width, height);
     }
 
     public void drawRectangle(double x1, double y1, double width, double height){
+        if (width < 0) {
+            width = -width;
+            x1 = x1 - width;
+        }
+        if (height < 0) {
+            height = -height;
+            y1 = y1 - height;
+        }
         gc.strokeRect(x1, y1, width, height);
     }
 
@@ -36,7 +52,4 @@ public class Shapes2D {
 
         gc.stroke();
     }
-
-
-
 }
