@@ -64,8 +64,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            <state relative-caret-position="323">
+              <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,17 +76,14 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="213" column="36" lean-forward="false" selection-start-line="213" selection-start-column="36" selection-end-line="213" selection-end-column="36" />
+            <state relative-caret-position="1333">
+              <caret line="360" column="22" lean-forward="true" selection-start-line="360" selection-start-column="22" selection-end-line="360" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-                <element signature="e#1348#1363#0" expanded="false" />
+                <element signature="e#1395#1410#0" expanded="false" />
                 <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
                 <element signature="method#setSize#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
               </folding>
             </state>
@@ -96,8 +93,8 @@
       <file leaf-file-name="Shapes2D.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            <state relative-caret-position="1088">
+              <caret line="64" column="55" lean-forward="false" selection-start-line="64" selection-start-column="55" selection-end-line="64" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -105,14 +102,16 @@
       </file>
       <file leaf-file-name="paint_gui.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10200">
+              <caret line="600" column="24" lean-forward="false" selection-start-line="600" selection-start-column="24" selection-end-line="600" selection-end-column="24" />
+              <folding>
+                <marker date="1510409219160" expanded="true" signature="36195:36222" ph="..." />
+              </folding>
+            </state>
+          </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10081">
-              <caret line="593" column="24" lean-forward="false" selection-start-line="593" selection-start-column="24" selection-end-line="593" selection-end-column="24" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -164,8 +163,8 @@
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/paint_gui.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/Shapes2D.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
       </list>
     </option>
   </component>
@@ -183,7 +182,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1612" />
@@ -208,10 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -234,6 +229,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -269,7 +268,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -407,11 +406,6 @@
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
     </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main (1)" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -461,7 +455,9 @@
       <workItem from="1509488197686" duration="193000" />
       <workItem from="1510248383495" duration="3552000" />
       <workItem from="1510331725752" duration="5339000" />
-      <workItem from="1510347699571" duration="2844000" />
+      <workItem from="1510347699571" duration="3141000" />
+      <workItem from="1510404849204" duration="3367000" />
+      <workItem from="1510474809649" duration="2992000" />
     </task>
     <task id="LOCAL-00001" summary="synced IDE with git">
       <created>1509306104953</created>
@@ -474,10 +470,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159053000" />
+    <option name="totallyTimeSpent" value="165709000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -547,20 +543,16 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2720">
           <caret line="160" column="5" lean-forward="true" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -583,13 +575,10 @@
           <caret line="111" column="49" lean-forward="false" selection-start-line="111" selection-start-column="49" selection-end-line="111" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -612,13 +601,10 @@
           <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -641,13 +627,10 @@
           <caret line="108" column="5" lean-forward="true" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -670,13 +653,10 @@
           <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -699,13 +679,10 @@
           <caret line="98" column="50" lean-forward="false" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -728,13 +705,10 @@
           <caret line="95" column="11" lean-forward="true" selection-start-line="95" selection-start-column="11" selection-end-line="95" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -757,13 +731,10 @@
           <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -786,13 +757,10 @@
           <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -815,13 +783,10 @@
           <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -844,13 +809,10 @@
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -873,13 +835,10 @@
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
@@ -938,21 +897,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10200">
+          <caret line="600" column="24" lean-forward="false" selection-start-line="600" selection-start-column="24" selection-end-line="600" selection-end-column="24" />
+          <folding>
+            <marker date="1510409219160" expanded="true" signature="36195:36222" ph="..." />
+          </folding>
+        </state>
+      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10081">
-          <caret line="593" column="24" lean-forward="false" selection-start-line="593" selection-start-column="24" selection-end-line="593" selection-end-column="24" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/com/sun/javafx/sg/prism/NGCanvas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-26428">
           <caret line="107" column="29" lean-forward="false" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -964,37 +924,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/input/MouseEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="613" column="33" lean-forward="true" selection-start-line="613" selection-start-column="33" selection-end-line="613" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="55" lean-forward="false" selection-start-line="64" selection-start-column="55" selection-end-line="64" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="323">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="213" column="36" lean-forward="false" selection-start-line="213" selection-start-column="36" selection-end-line="213" selection-end-column="36" />
+        <state relative-caret-position="1333">
+          <caret line="360" column="22" lean-forward="true" selection-start-line="360" selection-start-column="22" selection-end-line="360" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
-            <element signature="e#1348#1363#0" expanded="false" />
+            <element signature="e#1395#1410#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
             <element signature="method#setSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
