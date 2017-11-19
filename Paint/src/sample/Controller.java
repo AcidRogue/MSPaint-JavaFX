@@ -61,6 +61,8 @@ public class Controller {
     private HBox hboxTriangle;
     @FXML
     private HBox hboxRoundRectangle;
+    @FXML
+    private HBox hboxPolygon;
     //endregion
     //region colors
     @FXML
@@ -137,7 +139,7 @@ public class Controller {
 
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
-        shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle, hboxTriangle, hboxRoundRectangle};
+        shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle, hboxTriangle, hboxRoundRectangle, hboxPolygon};
 
         defColors = new HBox[]{hboxDefColor1, hboxDefColor2};
 
@@ -178,6 +180,11 @@ public class Controller {
     private double x2;
     private double y2;
 
+    private double polyx1;
+    private double polyy1;
+
+    private boolean polygonIsFirst = true;
+
     /*
     Logic for when the mouse is pressed.
      */
@@ -190,10 +197,20 @@ public class Controller {
             } else if (event.getButton() == MouseButton.SECONDARY) {
                 gc.setStroke(secondaryColor);
             }
-            gc.beginPath();
             x1 = event.getX();
             y1 = event.getY();
-            gc.moveTo(event.getX(), event.getY());
+            if (shapePressed == hboxPolygon) {
+                if (!polygonIsFirst) {
+                    x1 = x2;
+                    y1 = y2;
+                }
+                else{
+                    polyx1 = x1;
+                    polyy1 = y1;
+                }
+            }
+            gc.beginPath();
+            gc.moveTo(x1, y1);
         });
 
 
@@ -212,6 +229,9 @@ public class Controller {
             x2 = event.getX();
             y2 = event.getY();
 
+            if(x1 == x2 && y1 == y2)
+                return;
+
             double width = x2 - x1;
             double height = y2 - y1;
 
@@ -225,6 +245,18 @@ public class Controller {
                 shapeDrawer.drawTriangle(x1, y1, x2, y2, width);
             } else if (shapePressed == hboxRoundRectangle) {
                 shapeDrawer.drawRoundRectangle(x1, y1, width, height);
+            } else if (shapePressed == hboxPolygon) {
+                if(polygonIsFirst){
+                    polygonIsFirst = false;
+                }
+                if(x2 >= polyx1 - 10 && x2 <= polyx1 + 10 && y2 <= polyy1 + 10 && y2 >= polyy1 - 10){
+                    gc.lineTo(polyx1, polyy1);
+                    gc.stroke();
+                    polygonIsFirst = true;
+                    return;
+                }
+                gc.lineTo(x2, y2);
+                gc.stroke();
             }
         });
     }
@@ -241,14 +273,11 @@ public class Controller {
                     shapePressed = shape;
                     shapeIsPressed = true;
                     shapePressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
-                }
-                else if (shape != shapePressed) {
+                } else if (shape != shapePressed) {
                     shapeIsPressed = true;
                     shapePressed.setStyle("");
                     shapePressed = shape;
-
-                }
-                else {
+                } else {
                     shapePressed.setStyle("");
                     shapePressed = null;
                     shapeIsPressed = false;
