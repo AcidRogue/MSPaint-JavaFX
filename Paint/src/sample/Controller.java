@@ -118,7 +118,7 @@ public class Controller {
 
     private GraphicsContext gc;
 
-    Shapes2D shapeDrawer;
+    private Shapes2D shapeDrawer;
 
     private HBox[] tools;
     private HBox[] shapes;
@@ -180,10 +180,12 @@ public class Controller {
     private double x2;
     private double y2;
 
-    private double polyx1;
-    private double polyy1;
+    //x & y coordinates for polygon
+    private double polyX;
+    private double polyY;
 
     private boolean polygonIsFirst = true;
+
 
     /*
     Logic for when the mouse is pressed.
@@ -205,8 +207,8 @@ public class Controller {
                     y1 = y2;
                 }
                 else{
-                    polyx1 = x1;
-                    polyy1 = y1;
+                    polyX = x1;
+                    polyY = y1;
                 }
             }
             gc.beginPath();
@@ -249,8 +251,8 @@ public class Controller {
                 if(polygonIsFirst){
                     polygonIsFirst = false;
                 }
-                if(x2 >= polyx1 - 10 && x2 <= polyx1 + 10 && y2 <= polyy1 + 10 && y2 >= polyy1 - 10){
-                    gc.lineTo(polyx1, polyy1);
+                if(x2 >= polyX - 10 && x2 <= polyX + 10 && y2 <= polyY + 10 && y2 >= polyY - 10){
+                    gc.lineTo(polyX, polyY);
                     gc.stroke();
                     polygonIsFirst = true;
                     return;
