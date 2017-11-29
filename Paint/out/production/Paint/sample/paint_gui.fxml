@@ -21,16 +21,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="vBox" prefHeight="791.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox fx:id="vBox" prefHeight="817.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
             <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
+            <MenuItem fx:id="mItemOpen" mnemonicParsing="false" text="Open…" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem fx:id="mItemSave" mnemonicParsing="false" text="Save" />
             <MenuItem mnemonicParsing="false" text="Save As…" />
             <MenuItem mnemonicParsing="false" text="Revert" />
             <SeparatorMenuItem mnemonicParsing="false" />
@@ -54,15 +54,15 @@
     </MenuBar>
       <GridPane prefHeight="90.0" prefWidth="1122.0">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="146.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="10.0" prefWidth="98.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="697.0" minWidth="10.0" prefWidth="58.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="746.0" minWidth="10.0" prefWidth="307.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="746.0" minWidth="6.0" prefWidth="60.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="576.0" minWidth="10.0" prefWidth="460.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" prefWidth="146.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" prefWidth="98.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="697.0" prefWidth="58.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="746.0" prefWidth="307.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="746.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="576.0" prefWidth="460.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.halignment="RIGHT">
@@ -117,9 +117,9 @@
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="36.0" minHeight="0.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="47.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="36.0" prefHeight="17.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <HBox fx:id="hboxPencil" alignment="CENTER" prefHeight="11.0" prefWidth="39.0" GridPane.rowIndex="1">
@@ -174,11 +174,11 @@
             </GridPane>
             <GridPane GridPane.columnIndex="2">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="51.0" minHeight="39.0" prefHeight="39.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
@@ -215,14 +215,14 @@
             </Separator>
             <GridPane GridPane.columnIndex="4">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="14.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="10.0" prefWidth="54.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="22.0" minWidth="10.0" prefWidth="13.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" prefWidth="14.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" prefWidth="48.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="22.0" prefWidth="17.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="45.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="67.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="37.0" prefHeight="23.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <GridPane fx:id="btnSizeGridBox" prefHeight="39.0" prefWidth="54.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -254,39 +254,39 @@
             </GridPane>
             <GridPane prefHeight="90.0" prefWidth="343.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="47.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="47.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="265.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" prefWidth="47.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" prefWidth="47.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" prefWidth="265.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="59.0" minHeight="0.0" prefHeight="8.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="40.0" minHeight="7.0" prefHeight="7.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="59.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="70.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="41.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" prefHeight="7.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color 1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Color 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <GridPane fx:id="gridColors" prefHeight="60.0" prefWidth="270.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <HBox fx:id="hbox1" style="-fx-border-color: gray;">
+                        <HBox fx:id="hbox1" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -297,7 +297,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox2" style="-fx-border-color: gray;" GridPane.columnIndex="1">
+                        <HBox fx:id="hbox2" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -315,7 +315,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox3" style="-fx-border-color: gray;" GridPane.columnIndex="2">
+                        <HBox fx:id="hbox3" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -326,7 +326,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox4" style="-fx-border-color: gray;" GridPane.columnIndex="3">
+                        <HBox fx:id="hbox4" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="3">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -337,7 +337,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox5" style="-fx-border-color: gray;" GridPane.columnIndex="4">
+                        <HBox fx:id="hbox5" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="4">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -348,7 +348,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox6" style="-fx-border-color: gray;" GridPane.columnIndex="5">
+                        <HBox fx:id="hbox6" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="5">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -359,7 +359,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox8" style="-fx-border-color: gray;" GridPane.columnIndex="7">
+                        <HBox fx:id="hbox8" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="7">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -370,7 +370,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox9" style="-fx-border-color: gray;" GridPane.columnIndex="8">
+                        <HBox fx:id="hbox9" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="8">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -381,7 +381,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox10" style="-fx-border-color: gray;" GridPane.columnIndex="9">
+                        <HBox fx:id="hbox10" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="9">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -392,7 +392,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox11" style="-fx-border-color: gray;" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox11" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -403,7 +403,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox12" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox12" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -414,7 +414,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox13" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox13" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -425,7 +425,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox14" style="-fx-border-color: gray;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox14" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -436,7 +436,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox7" style="-fx-border-color: gray;" GridPane.columnIndex="6">
+                        <HBox fx:id="hbox7" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="6">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -447,7 +447,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox15" style="-fx-border-color: gray;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox15" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -458,7 +458,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox18" style="-fx-border-color: gray;" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox18" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="7" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -469,7 +469,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox19" style="-fx-border-color: gray;" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox19" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="8" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -480,7 +480,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox16" style="-fx-border-color: gray;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox16" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="5" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -491,7 +491,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox20" style="-fx-border-color: gray;" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox20" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="9" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -502,7 +502,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="hbox17" style="-fx-border-color: gray;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                        <HBox fx:id="hbox17" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: gray;" GridPane.columnIndex="6" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </GridPane.margin>
@@ -517,7 +517,7 @@
                   </GridPane>
                   <HBox fx:id="hboxDefColor1" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <Pane fx:id="defColor1" prefHeight="53.0" prefWidth="65.0" style="-fx-border-color: gray; -fx-background-color: rgb(0,0,0);" />
+                        <Pane fx:id="defColor1" minHeight="43.0" minWidth="43.0" style="-fx-border-color: gray; -fx-background-color: rgb(0,0,0);" />
                      </children>
                      <GridPane.margin>
                         <Insets />
@@ -528,7 +528,7 @@
                   </HBox>
                   <HBox fx:id="hboxDefColor2" prefHeight="54.0" prefWidth="42.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Pane fx:id="defColor2" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" />
+                        <Pane fx:id="defColor2" minHeight="43.0" minWidth="42.0" style="-fx-border-color: black;" />
                      </children>
                      <GridPane.margin>
                         <Insets />
@@ -545,18 +545,18 @@
             <GridPane GridPane.columnIndex="3">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="75.0" minWidth="0.0" prefWidth="0.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" minWidth="55.0" prefWidth="263.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="6.0" prefWidth="56.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" prefWidth="263.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" prefWidth="56.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="69.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="69.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="69.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="-Infinity" prefHeight="17.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ScrollPane prefHeight="84.0" prefWidth="265.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ScrollPane prefHeight="59.0" prefWidth="266.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="250.0">
+                      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="250.0">
                            <children>
                               <HBox fx:id="hboxLine" layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0">
                                  <children>
@@ -591,7 +591,14 @@
                                     </ImageView>
                                  </children>
                               </HBox>
-                              <HBox fx:id="hboxRoundRectangle" layoutX="125.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0" />
+                              <HBox fx:id="hboxRoundRectangle" layoutX="125.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0">
+                                 <children>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0">
+                                       <image>
+                                          <Image url="@../images/roundrectangle.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children></HBox>
                               <HBox fx:id="hboxCircle" layoutX="91.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0">
                                  <children>
                                     <ImageView fitHeight="25.0" fitWidth="25.0">
@@ -610,10 +617,10 @@
             </GridPane>
          </children>
       </GridPane>
-      <AnchorPane prefHeight="676.0" prefWidth="1251.0" style="-fx-background-color: #d9e6ff;">
+      <AnchorPane prefHeight="343.0" prefWidth="1251.0" style="-fx-background-color: #d9e6ff;">
          <children>
             <Separator prefHeight="0.0" prefWidth="1251.0" AnchorPane.bottomAnchor="673.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="584.0" prefWidth="1122.0" style="-fx-background-color: white;">
+            <AnchorPane fx:id="anchorPane" layoutX="7.0" layoutY="7.0" prefHeight="584.0" prefWidth="1122.0" style="-fx-background-color: white;">
                <effect>
                   <DropShadow color="#0000008c" height="23.97" offsetX="5.0" offsetY="5.0" radius="12.9675" width="29.9" />
                </effect>
@@ -621,7 +628,33 @@
                   <Canvas fx:id="drawingCanvas" height="584.0" width="1122.0" />
                </children>
             </AnchorPane>
+            <Separator layoutY="673.0" prefHeight="5.0" prefWidth="1251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="673.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Separator>
          </children>
       </AnchorPane>
+      <GridPane prefHeight="25.0" prefWidth="1251.0" style="-fx-background-color: #f2f2f2;">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="100.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="768.0" minWidth="100.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="742.0" minWidth="100.0" prefWidth="200.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="742.0" prefWidth="435.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="100.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fx:id="txtCoordinates" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="198.13671875" />
+            <Text fx:id="txtCanvasSize" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="187.13671875" GridPane.columnIndex="2" />
+            <Separator halignment="RIGHT" orientation="VERTICAL" prefHeight="25.0" prefWidth="0.0" valignment="TOP">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Separator>
+         </children>
+      </GridPane>
   </children>
 </VBox>

@@ -1,19 +1,30 @@
 package sample;
 
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.*;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+
+import javax.imageio.ImageIO;
 
 public class Controller {
 
@@ -105,6 +116,16 @@ public class Controller {
     private HBox hbox19;
     @FXML
     private HBox hbox20;
+    @FXML
+    private Text txtCoordinates;
+    @FXML
+    private Text txtCanvasSize;
+    @FXML
+    private MenuItem mItemOpen;
+    @FXML
+    private MenuItem mItemSave;
+    @FXML
+    private AnchorPane anchorPane;
     //endregion
 
     @FXML
@@ -155,6 +176,7 @@ public class Controller {
         handleDrawingCanvas();
         handleDefColors();
         handleShapes();
+        handleMenu();
     }
 
 
@@ -169,6 +191,42 @@ public class Controller {
             secondaryColor = Color.rgb(r, g, b);
             defColor2.setStyle("-fx-border-color: gray;-fx-background-color: " + colorStr);
         }
+    }
+
+    private void handleMenu() {
+        mItemSave.setOnAction(event -> {
+            FileChooser fc = new FileChooser();
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PNG (*.png)", "*.png");
+            fc.getExtensionFilters().add(extFilter);
+            File f = fc.showSaveDialog(null);
+
+            if (f != null) {
+                try {
+                    WritableImage writableImage = new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight());
+                    drawingCanvas.snapshot(null, writableImage);
+                    RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                    ImageIO.write(renderedImage, "png", f);
+                } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                }
+            }
+        });
+
+        mItemOpen.setOnAction(event -> {
+            FileChooser fc = new FileChooser();
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PNG (*.png)", "*.png");
+            fc.getExtensionFilters().add(extFilter);
+            File f = fc.showOpenDialog(null);
+            if (f != null) {
+                try {
+                    BufferedImage bufferedImage = ImageIO.read(f);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    gc.drawImage(image,0, 0);
+                } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                }
+            }
+        });
     }
 
 
@@ -191,6 +249,13 @@ public class Controller {
     Logic for when the mouse is pressed.
      */
     private void handleDrawingCanvas() {
+        drawingCanvas.setOnMouseMoved(event -> {
+            txtCoordinates.setText(String.format("%.2f, %.2fpx", event.getX(), event.getY()));
+        });
+        drawingCanvas.setOnMouseExited(event -> {
+            txtCoordinates.setText("");
+        });
+        txtCanvasSize.setText(String.format("%.2f, %.2fpx", drawingCanvas.getWidth(), drawingCanvas.getHeight()));
         drawingCanvas.setOnMousePressed(event -> {
             setSize();
             gc.setLineWidth(size);
@@ -205,8 +270,7 @@ public class Controller {
                 if (!polygonIsFirst) {
                     x1 = x2;
                     y1 = y2;
-                }
-                else{
+                } else {
                     polyX = x1;
                     polyY = y1;
                 }
@@ -231,7 +295,7 @@ public class Controller {
             x2 = event.getX();
             y2 = event.getY();
 
-            if(x1 == x2 && y1 == y2)
+            if (x1 == x2 && y1 == y2)
                 return;
 
             double width = x2 - x1;
@@ -248,10 +312,10 @@ public class Controller {
             } else if (shapePressed == hboxRoundRectangle) {
                 shapeDrawer.drawRoundRectangle(x1, y1, width, height);
             } else if (shapePressed == hboxPolygon) {
-                if(polygonIsFirst){
+                if (polygonIsFirst) {
                     polygonIsFirst = false;
                 }
-                if(x2 >= polyX - 10 && x2 <= polyX + 10 && y2 <= polyY + 10 && y2 >= polyY - 10){
+                if (x2 >= polyX - 10 && x2 <= polyX + 10 && y2 <= polyY + 10 && y2 >= polyY - 10) {
                     gc.lineTo(polyX, polyY);
                     gc.stroke();
                     polygonIsFirst = true;
