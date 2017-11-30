@@ -12,11 +12,9 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
@@ -43,6 +41,12 @@ public class Controller {
     private GridPane gridColors;
     @FXML
     private ChoiceBox btnSize;
+    @FXML
+    private MenuItem mItemOpen;
+    @FXML
+    private MenuItem mItemSave;
+    @FXML
+    private MenuItem mItemSaveAs;
     @FXML
     private HBox hboxDefColor1;
     @FXML
@@ -120,12 +124,6 @@ public class Controller {
     private Text txtCoordinates;
     @FXML
     private Text txtCanvasSize;
-    @FXML
-    private MenuItem mItemOpen;
-    @FXML
-    private MenuItem mItemSave;
-    @FXML
-    private AnchorPane anchorPane;
     //endregion
 
     @FXML
@@ -180,6 +178,8 @@ public class Controller {
     }
 
 
+    private boolean firstTimeSave = true;
+
     /*
     Changes the currently picked color.
      */
@@ -193,35 +193,57 @@ public class Controller {
         }
     }
 
+    private void saveToFile(String type) {
+        if (f != null) {
+            try {
+                WritableImage writableImage = new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight());
+                drawingCanvas.snapshot(null, writableImage);
+                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                ImageIO.write(renderedImage, type, f);
+                firstTimeSave = false;
+            } catch (IOException ex) {
+                System.err.println(ex.getMessage());
+            }
+        }
+    }
+
+    private File f = null;
+    private String saveFormatType;
+
     private void handleMenu() {
         mItemSave.setOnAction(event -> {
-            FileChooser fc = new FileChooser();
-            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PNG (*.png)", "*.png");
-            fc.getExtensionFilters().add(extFilter);
-            File f = fc.showSaveDialog(null);
-
-            if (f != null) {
-                try {
-                    WritableImage writableImage = new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight());
-                    drawingCanvas.snapshot(null, writableImage);
-                    RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                    ImageIO.write(renderedImage, "png", f);
-                } catch (IOException ex) {
-                    System.err.println(ex.getMessage());
-                }
+            if (firstTimeSave) {
+                FileChooser fc = new FileChooser();
+                fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
+                        new FileChooser.ExtensionFilter("JPG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
+                f = fc.showSaveDialog(null);
+                saveFormatType = fc.getSelectedExtensionFilter().getDescription();
+                saveToFile(saveFormatType);
+            } else {
+                saveToFile(saveFormatType);
             }
+        });
+
+        mItemSaveAs.setOnAction(event -> {
+            FileChooser fc = new FileChooser();
+            fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
+                    new FileChooser.ExtensionFilter("JPG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
+            f = fc.showSaveDialog(null);
+            saveFormatType = fc.getSelectedExtensionFilter().getDescription();
+            saveToFile(fc.getSelectedExtensionFilter().getDescription());
         });
 
         mItemOpen.setOnAction(event -> {
             FileChooser fc = new FileChooser();
-            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PNG (*.png)", "*.png");
-            fc.getExtensionFilters().add(extFilter);
+            fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
+                    new FileChooser.ExtensionFilter("JPEG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
             File f = fc.showOpenDialog(null);
+
             if (f != null) {
                 try {
                     BufferedImage bufferedImage = ImageIO.read(f);
                     Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-                    gc.drawImage(image,0, 0);
+                    gc.drawImage(image, 0, 0);
                 } catch (IOException ex) {
                     System.err.println(ex.getMessage());
                 }
