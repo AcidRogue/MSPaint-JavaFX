@@ -149,7 +149,6 @@ public class Controller {
     private HBox[] hboxes;
 
     private HBox defColorPressed;
-
     private HBox shapePressed;
 
     /*
@@ -159,14 +158,11 @@ public class Controller {
     void initialize() {
         gc = drawingCanvas.getGraphicsContext2D();
         shapeDrawer = new Shapes2D(gc);
-
-        drawingCanvasWidth = drawingCanvas.getWidth();
-        drawingCanvasHeight = drawingCanvas.getHeight();
+        fileSaver = new FileSaver(drawingCanvas);
 
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
         shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle, hboxTriangle, hboxRoundRectangle, hboxPolygon};
-
         defColors = new HBox[]{hboxDefColor1, hboxDefColor2};
 
         hboxDefColor1.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgb(97, 167, 237, 0.3)");
@@ -200,43 +196,28 @@ public class Controller {
     }
 
 
-    private double drawingCanvasWidth;
-    private double drawingCanvasHeight;
-
-    private boolean firstTimeSave = true;
-    private boolean changesMade = false;
+    static boolean firstTimeSave = true;
+    static boolean changesMade = false;
+    static File f;
+    private FileSaver fileSaver;
+    static String saveFormatType;
 
 
     private void saveToFile(String type) {
         if (f != null) {
-            try {
-                WritableImage writableImage = new WritableImage((int) drawingCanvasWidth, (int) drawingCanvasHeight);
-                drawingCanvas.snapshot(null, writableImage);
-                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
-                ImageIO.write(renderedImage, type, f);
-                firstTimeSave = false;
-                changesMade = false;
-            } catch (IOException ex) {
-                System.err.println(ex.getMessage());
-            }
+            fileSaver.saveToFile(type);
         }
     }
 
 
     private void saveToFile() {
-        FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
-        f = fc.showSaveDialog(null);
-        if(f != null){
-            String type = fc.getSelectedExtensionFilter().getDescription();
-            saveToFile(type);
-        }
+        fileSaver.saveToFile();
     }
+    
 
-    private File f = null;
-    private String saveFormatType;
-
+    /*
+    Handles the buttons in the 'File' menu.
+     */
     private void handleMenu() {
         mItemSave.setOnAction(event -> {
             if (firstTimeSave) {
@@ -271,7 +252,11 @@ public class Controller {
         });
     }
 
-    public void onShutDown() {
+
+    /*
+    Shows a dialog if you try to close the application without saving.
+     */
+    private void onShutDown() {
         if (changesMade) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
 
@@ -285,7 +270,12 @@ public class Controller {
 
             if(result.isPresent()){
                 if(result.get() == btnSave){
-                    saveToFile();
+                    if(saveFormatType != null){
+                        saveToFile(saveFormatType);
+                    }
+                    else{
+                        saveToFile();
+                    }
                     Platform.exit();
                 }
                 else if(result.get() == btnDontSave){
@@ -301,7 +291,8 @@ public class Controller {
         }
     }
 
-    public void setOnShutDown(){
+
+    private void setOnShutDown(){
         Stage primaryStage = Main.getPrimaryStage();
 
         primaryStage.setOnCloseRequest(event -> {
@@ -554,5 +545,3 @@ public class Controller {
         }
     }
 }
-
-

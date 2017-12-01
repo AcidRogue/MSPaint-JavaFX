@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
     public static Stage pStage;
 
     public static Stage getPrimaryStage(){
