@@ -5,22 +5,26 @@ import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.*;
-
+import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 
@@ -156,6 +160,9 @@ public class Controller {
         gc = drawingCanvas.getGraphicsContext2D();
         shapeDrawer = new Shapes2D(gc);
 
+        drawingCanvasWidth = drawingCanvas.getWidth();
+        drawingCanvasHeight = drawingCanvas.getHeight();
+
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
         shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle, hboxTriangle, hboxRoundRectangle, hboxPolygon};
@@ -175,10 +182,9 @@ public class Controller {
         handleDefColors();
         handleShapes();
         handleMenu();
+        setOnShutDown();
     }
 
-
-    private boolean firstTimeSave = true;
 
     /*
     Changes the currently picked color.
@@ -193,17 +199,38 @@ public class Controller {
         }
     }
 
+
+    private double drawingCanvasWidth;
+    private double drawingCanvasHeight;
+
+    private boolean firstTimeSave = true;
+    private boolean changesMade = false;
+
+
     private void saveToFile(String type) {
         if (f != null) {
             try {
-                WritableImage writableImage = new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight());
+                WritableImage writableImage = new WritableImage((int) drawingCanvasWidth, (int) drawingCanvasHeight);
                 drawingCanvas.snapshot(null, writableImage);
                 RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
                 ImageIO.write(renderedImage, type, f);
                 firstTimeSave = false;
+                changesMade = false;
             } catch (IOException ex) {
                 System.err.println(ex.getMessage());
             }
+        }
+    }
+
+
+    private void saveToFile() {
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
+        f = fc.showSaveDialog(null);
+        if(f != null){
+            String type = fc.getSelectedExtensionFilter().getDescription();
+            saveToFile(type);
         }
     }
 
@@ -213,30 +240,22 @@ public class Controller {
     private void handleMenu() {
         mItemSave.setOnAction(event -> {
             if (firstTimeSave) {
-                FileChooser fc = new FileChooser();
-                fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
-                        new FileChooser.ExtensionFilter("JPG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
-                f = fc.showSaveDialog(null);
-                saveFormatType = fc.getSelectedExtensionFilter().getDescription();
-                saveToFile(saveFormatType);
+                saveToFile();
             } else {
                 saveToFile(saveFormatType);
             }
         });
 
+        mItemSave.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN));
+
         mItemSaveAs.setOnAction(event -> {
-            FileChooser fc = new FileChooser();
-            fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
-                    new FileChooser.ExtensionFilter("JPG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
-            f = fc.showSaveDialog(null);
-            saveFormatType = fc.getSelectedExtensionFilter().getDescription();
-            saveToFile(fc.getSelectedExtensionFilter().getDescription());
+            saveToFile();
         });
 
         mItemOpen.setOnAction(event -> {
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
-                    new FileChooser.ExtensionFilter("JPEG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
+                    new FileChooser.ExtensionFilter("JPG", "*.jpg", "*.jpeg", "*.jpe", "*.jfif"));
             File f = fc.showOpenDialog(null);
 
             if (f != null) {
@@ -244,11 +263,53 @@ public class Controller {
                     BufferedImage bufferedImage = ImageIO.read(f);
                     Image image = SwingFXUtils.toFXImage(bufferedImage, null);
                     gc.drawImage(image, 0, 0);
+                    changesMade = true;
                 } catch (IOException ex) {
                     System.err.println(ex.getMessage());
                 }
             }
         });
+    }
+
+    public void onShutDown() {
+        if (changesMade) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+
+            ButtonType btnSave = new ButtonType("Save");
+            ButtonType btnDontSave = new ButtonType("Don't Save");
+            ButtonType btnClose = new ButtonType("Close", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            alert.getButtonTypes().setAll(btnSave, btnDontSave, btnClose);
+
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if(result.isPresent()){
+                if(result.get() == btnSave){
+                    saveToFile();
+                    Platform.exit();
+                }
+                else if(result.get() == btnDontSave){
+                    alert.close();
+                    Platform.exit();
+                }
+                else{
+                    alert.close();
+                }
+            }
+        } else {
+            Platform.exit();
+        }
+    }
+
+    public void setOnShutDown(){
+        Stage primaryStage = Main.getPrimaryStage();
+
+        primaryStage.setOnCloseRequest(event -> {
+            event.consume();
+            onShutDown();
+        });
+
+        Main.setPrimaryStage(primaryStage);
     }
 
 
@@ -299,10 +360,12 @@ public class Controller {
             }
             gc.beginPath();
             gc.moveTo(x1, y1);
+            changesMade = true;
         });
 
 
         drawingCanvas.setOnMouseDragged(event -> {
+            changesMade = true;
             if (!shapeIsPressed) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
@@ -316,6 +379,8 @@ public class Controller {
         drawingCanvas.setOnMouseReleased(event -> {
             x2 = event.getX();
             y2 = event.getY();
+
+            changesMade = true;
 
             if (x1 == x2 && y1 == y2)
                 return;

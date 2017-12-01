@@ -14,8 +14,19 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static Stage pStage;
+
+    public static Stage getPrimaryStage(){
+        return pStage;
+    }
+
+    public static void setPrimaryStage(Stage pStage){
+        Main.pStage = pStage;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+        setPrimaryStage(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("paint_gui.fxml"));
         primaryStage.setTitle("Paint");
         primaryStage.setScene(new Scene(root));
