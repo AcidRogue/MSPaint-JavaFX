@@ -1,7 +1,7 @@
 package sample;
 
 /*
-MS Paint like project made for educational purposes only
+MS Paint like project made for educational purposes only.
 Author: Kalin Tomanov
 Email: kalin_tomanov@abv.bg
  */
@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    public static Stage pStage;
+    private static Stage pStage;
 
     public static Stage getPrimaryStage(){
         return pStage;

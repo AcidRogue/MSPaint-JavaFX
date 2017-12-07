@@ -4,7 +4,6 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.WritableImage;
 import javafx.stage.FileChooser;
-
 import javax.imageio.ImageIO;
 import java.awt.image.RenderedImage;
 import java.io.IOException;

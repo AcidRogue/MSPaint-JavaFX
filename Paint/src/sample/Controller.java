@@ -1,13 +1,13 @@
 package sample;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.*;
+
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
@@ -15,7 +15,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -51,6 +50,8 @@ public class Controller {
     private MenuItem mItemSave;
     @FXML
     private MenuItem mItemSaveAs;
+    @FXML
+    private MenuItem mItemNew;
     @FXML
     private HBox hboxDefColor1;
     @FXML
@@ -213,26 +214,23 @@ public class Controller {
     private void saveToFile() {
         fileSaver.saveToFile();
     }
-    
+
 
     /*
-    Handles the buttons in the 'File' menu.
+    Handles the buttons in the menu.
      */
     private void handleMenu() {
-        mItemSave.setOnAction(event -> {
-            if (firstTimeSave) {
-                saveToFile();
-            } else {
-                saveToFile(saveFormatType);
+        //Handles the first button of the 'File' menu.
+        mItemNew.setOnAction(event -> {
+            if (changesMade) {
+                changesWarning(false);
             }
+            gc.clearRect(0, 0, drawingCanvas.getWidth(), drawingCanvas.getHeight());
+            changesMade = false;
+            firstTimeSave = true;
         });
 
-        mItemSave.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN));
-
-        mItemSaveAs.setOnAction(event -> {
-            saveToFile();
-        });
-
+        //Handles the second button of the 'File' menu.
         mItemOpen.setOnAction(event -> {
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
@@ -250,13 +248,28 @@ public class Controller {
                 }
             }
         });
+
+        //Handles the third button of the 'File' menu.
+        mItemSave.setOnAction(event -> {
+            if (firstTimeSave) {
+                saveToFile();
+            } else {
+                saveToFile(saveFormatType);
+            }
+        });
+        mItemSave.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN));
+
+        //Handles the fourth button of the 'File' menu.
+        mItemSaveAs.setOnAction(event -> {
+            saveToFile();
+        });
     }
 
 
     /*
     Shows a dialog if you try to close the application without saving.
      */
-    private void onShutDown() {
+    private void changesWarning(boolean withExit) {
         if (changesMade) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
 
@@ -264,40 +277,43 @@ public class Controller {
             ButtonType btnDontSave = new ButtonType("Don't Save");
             ButtonType btnClose = new ButtonType("Close", ButtonBar.ButtonData.CANCEL_CLOSE);
 
+            alert.setHeaderText("Unsaved changes.");
+
             alert.getButtonTypes().setAll(btnSave, btnDontSave, btnClose);
 
             Optional<ButtonType> result = alert.showAndWait();
 
-            if(result.isPresent()){
-                if(result.get() == btnSave){
-                    if(saveFormatType != null){
+            if (result.isPresent()) {
+                if (result.get() == btnSave) {
+                    if (saveFormatType != null) {
                         saveToFile(saveFormatType);
-                    }
-                    else{
+                    } else {
                         saveToFile();
                     }
-                    Platform.exit();
-                }
-                else if(result.get() == btnDontSave){
+                    if (withExit) {
+                        Platform.exit();
+                    }
+                } else if (result.get() == btnDontSave) {
                     alert.close();
-                    Platform.exit();
-                }
-                else{
+                    if (withExit) {
+                        Platform.exit();
+                    }
+                } else {
                     alert.close();
                 }
             }
-        } else {
+        } else if (withExit) {
             Platform.exit();
         }
     }
 
 
-    private void setOnShutDown(){
+    private void setOnShutDown() {
         Stage primaryStage = Main.getPrimaryStage();
 
         primaryStage.setOnCloseRequest(event -> {
             event.consume();
-            onShutDown();
+            changesWarning(true);
         });
 
         Main.setPrimaryStage(primaryStage);
