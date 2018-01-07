@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.*;
@@ -11,6 +13,7 @@ import java.util.regex.*;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.scene.ImageCursor;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -37,6 +40,8 @@ public class Controller {
     @FXML
     private VBox vBox;
     @FXML
+    private AnchorPane anchorPane;
+    @FXML
     private Canvas drawingCanvas;
     @FXML
     private ChoiceBox btnBrushType;
@@ -52,6 +57,10 @@ public class Controller {
     private MenuItem mItemSaveAs;
     @FXML
     private MenuItem mItemNew;
+    @FXML
+    private MenuItem mItemExit;
+    @FXML
+    private MenuItem mItemRevert;
     @FXML
     private HBox hboxDefColor1;
     @FXML
@@ -135,7 +144,7 @@ public class Controller {
     private GridPane btnSizeGridBox;
     //endregion
 
-    private int size;
+    private int size = 1;
 
     private Color primaryColor = Color.rgb(0, 0, 0);
     private Color secondaryColor = Color.rgb(255, 255, 255);
@@ -150,7 +159,10 @@ public class Controller {
     private HBox[] hboxes;
 
     private HBox defColorPressed;
-    private HBox shapePressed;
+    private HBox toolPressed;
+
+    private List<Canvas> list;
+    private int counter = 0;
 
     /*
     Main method that is called when the program is run. Used for initializing methods and variables.
@@ -158,8 +170,12 @@ public class Controller {
     @FXML
     void initialize() {
         gc = drawingCanvas.getGraphicsContext2D();
-        shapeDrawer = new Shapes2D(gc);
+
         fileSaver = new FileSaver(drawingCanvas);
+        shapeDrawer = new Shapes2D(gc);
+
+        list = new ArrayList<>();
+        list.add(drawingCanvas);
 
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
@@ -172,16 +188,17 @@ public class Controller {
         btnSize.getItems().addAll("1px", "3px", "5px", "8px");
         btnSize.setValue("1px");
 
+        handleSize();
         handleColors();
-        handleOnMouseOverColors();
+        handleOnMouseOver();
         handleOnMouseExitedColors();
         handleDrawingCanvas();
         handleDefColors();
-        handleShapes();
+        handleToolsAndShapes();
         handleMenu();
         setOnShutDown();
+        undo();
     }
-
 
     /*
     Changes the currently picked color.
@@ -263,6 +280,12 @@ public class Controller {
         mItemSaveAs.setOnAction(event -> {
             saveToFile();
         });
+
+        mItemRevert.setAccelerator(new KeyCodeCombination(KeyCode.Z, KeyCombination.CONTROL_DOWN));
+
+        mItemExit.setOnAction(event -> {
+            changesWarning(true);
+        });
     }
 
 
@@ -339,15 +362,21 @@ public class Controller {
     Logic for when the mouse is pressed.
      */
     private void handleDrawingCanvas() {
-        drawingCanvas.setOnMouseMoved(event -> {
+        list.get(counter).setOnMouseMoved(event -> {
             txtCoordinates.setText(String.format("%.2f, %.2fpx", event.getX(), event.getY()));
         });
-        drawingCanvas.setOnMouseExited(event -> {
+        list.get(counter).setOnMouseExited(event -> {
             txtCoordinates.setText("");
         });
         txtCanvasSize.setText(String.format("%.2f, %.2fpx", drawingCanvas.getWidth(), drawingCanvas.getHeight()));
+
         drawingCanvas.setOnMousePressed(event -> {
-            setSize();
+            Canvas s = new Canvas(drawingCanvas.getWidth(), drawingCanvas.getHeight());
+            drawingCanvas = s;
+            gc = drawingCanvas.getGraphicsContext2D();
+            list.add(s);
+            counter++;
+
             gc.setLineWidth(size);
             if (event.getButton() == MouseButton.PRIMARY) {
                 gc.setStroke(primaryColor);
@@ -356,7 +385,7 @@ public class Controller {
             }
             x1 = event.getX();
             y1 = event.getY();
-            if (shapePressed == hboxPolygon) {
+            if (toolPressed == hboxPolygon) {
                 if (!polygonIsFirst) {
                     x1 = x2;
                     y1 = y2;
@@ -368,14 +397,19 @@ public class Controller {
             gc.beginPath();
             gc.moveTo(x1, y1);
             changesMade = true;
+            anchorPane.getChildren().add(s);
+            handleDrawingCanvas();
         });
 
 
-        drawingCanvas.setOnMouseDragged(event -> {
+        list.get(counter).setOnMouseDragged(event -> {
             changesMade = true;
-            if (!shapeIsPressed) {
+            if (!toolIsPressed) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
+            }
+            if(toolPressed == hboxRubber){
+                
             }
         });
 
@@ -383,29 +417,30 @@ public class Controller {
         /*
         Handle shapes.
          */
-        drawingCanvas.setOnMouseReleased(event -> {
+        list.get(counter).setOnMouseReleased(event -> {
+            shapeDrawer = new Shapes2D(gc);
             x2 = event.getX();
             y2 = event.getY();
-
-            changesMade = true;
 
             if (x1 == x2 && y1 == y2)
                 return;
 
+            changesMade = true;
+
             double width = x2 - x1;
             double height = y2 - y1;
 
-            if (shapePressed == hboxLine) {
+            if (toolPressed == hboxLine) {
                 shapeDrawer.drawLine(x2, y2);
-            } else if (shapePressed == hboxRectangle) {
+            } else if (toolPressed == hboxRectangle) {
                 shapeDrawer.drawRectangle(x1, y1, width, height);
-            } else if (shapePressed == hboxCircle) {
+            } else if (toolPressed == hboxCircle) {
                 shapeDrawer.drawOval(x1, y1, width, height);
-            } else if (shapePressed == hboxTriangle) {
+            } else if (toolPressed == hboxTriangle) {
                 shapeDrawer.drawTriangle(x1, y1, x2, y2, width);
-            } else if (shapePressed == hboxRoundRectangle) {
+            } else if (toolPressed == hboxRoundRectangle) {
                 shapeDrawer.drawRoundRectangle(x1, y1, width, height);
-            } else if (shapePressed == hboxPolygon) {
+            } else if (toolPressed == hboxPolygon) {
                 if (polygonIsFirst) {
                     polygonIsFirst = false;
                 }
@@ -421,26 +456,39 @@ public class Controller {
         });
     }
 
-    private boolean shapeIsPressed;
+    void undo(){
+        mItemRevert.setOnAction(e -> {
+            if(counter >= 1){
+                gc  = list.get(counter).getGraphicsContext2D();
+                gc.clearRect(0,0, drawingCanvas.getWidth(), drawingCanvas.getHeight());
+                drawingCanvas = list.get(counter - 1);
+                list.remove(counter);
+                counter--;
+            }
+        });
+    }
 
-    /*
-    Handle shapes.
-     */
-    private void handleShapes() {
-        for (HBox shape : shapes) {
-            shape.setOnMouseClicked(event -> {
-                if (shapePressed == null) {
-                    shapePressed = shape;
-                    shapeIsPressed = true;
-                    shapePressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
-                } else if (shape != shapePressed) {
-                    shapeIsPressed = true;
-                    shapePressed.setStyle("");
-                    shapePressed = shape;
+
+    private boolean toolIsPressed;
+
+    private void toolsForEach(HBox[] tools){
+        for (HBox tool : tools) {
+            tool.setOnMouseClicked(event -> {
+                if (toolPressed == null) {
+                    toolPressed = tool;
+                    toolIsPressed = true;
+                    toolPressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
+                } else if (tool != toolPressed) {
+                    toolIsPressed = true;
+                    toolPressed.setStyle("");
+                    toolPressed = tool;
                 } else {
-                    shapePressed.setStyle("");
-                    shapePressed = null;
-                    shapeIsPressed = false;
+                    toolPressed.setStyle("");
+                    toolPressed = null;
+                    toolIsPressed = false;
+                }
+                if(toolPressed == hboxRubber){
+                    list.get(counter).setCursor(new ImageCursor(new Image("./images/rubbersize" + size + ".png")));
                 }
             });
         }
@@ -448,10 +496,21 @@ public class Controller {
 
 
     /*
+    Handle shapes.
+     */
+    private void handleToolsAndShapes() {
+        toolsForEach(shapes);
+        toolsForEach(tools);
+    }
+
+
+    /*
     Takes the size from the size choice box and sets it.
      */
-    private void setSize() {
-        size = Integer.parseInt(Character.toString(btnSize.getValue().toString().charAt(0)));
+    private void handleSize() {
+        btnSize.setOnAction(event -> {
+            size = Integer.parseInt(Character.toString(btnSize.getValue().toString().charAt(0)));
+        });
     }
 
 
@@ -481,7 +540,7 @@ public class Controller {
     /*
     Changes the color of objects' background and border colors when mouse is above them.
      */
-    private void handleOnMouseOverColors() {
+    private void handleOnMouseOver() {
         for (HBox hBox : hboxes) {
             hBox.setOnMouseEntered(event -> {
                 hBox.setStyle(hBox.getStyle().replace("-fx-border-color: gray;", "-fx-border-color: rgb(97, 167, 237);"));
@@ -494,7 +553,7 @@ public class Controller {
         }
         for (HBox shape : shapes) {
             shape.setOnMouseEntered(event -> {
-                if (shape != shapePressed) {
+                if (shape != toolPressed) {
                     shape.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.1)");
                 }
             });
@@ -528,7 +587,7 @@ public class Controller {
         }
         for (HBox shape : shapes) {
             shape.setOnMouseExited(event -> {
-                if (shape != shapePressed) {
+                if (shape != toolPressed) {
                     shape.setStyle("");
                 }
             });

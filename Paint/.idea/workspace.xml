@@ -12,12 +12,9 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Paint_jar/Paint.jar" afterPath="$PROJECT_DIR$/out/artifacts/Paint_jar/Paint.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/sample/Controller.class" afterPath="$PROJECT_DIR$/out/production/Paint/sample/Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/sample/FileSaver.class" afterPath="$PROJECT_DIR$/out/production/Paint/sample/FileSaver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/sample/Main.class" afterPath="$PROJECT_DIR$/out/production/Paint/sample/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Paint/sample/paint_gui.fxml" afterPath="$PROJECT_DIR$/out/production/Paint/sample/paint_gui.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/sample/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/FileSaver.java" afterPath="$PROJECT_DIR$/src/sample/FileSaver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/paint_gui.fxml" afterPath="$PROJECT_DIR$/src/sample/paint_gui.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -80,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="15" lean-forward="true" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+              <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -89,17 +86,20 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="170" column="0" lean-forward="true" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+            <state relative-caret-position="395">
+              <caret line="424" column="37" lean-forward="true" selection-start-line="424" selection-start-column="37" selection-end-line="424" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
                 <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-                <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+                <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+                <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+                <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+                <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+                <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+                <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+                <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+                <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
               </folding>
@@ -110,8 +110,8 @@
       <file leaf-file-name="FileSaver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/FileSaver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+            <state relative-caret-position="255">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,8 +122,8 @@
       <file leaf-file-name="Shapes2D.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="748">
+              <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -131,60 +131,14 @@
       </file>
       <file leaf-file-name="paint_gui.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3859">
-              <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-              <folding>
-                <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-                <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-              </folding>
-            </state>
-          </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="38" column="38" lean-forward="false" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -210,11 +164,14 @@
       <find>primary</find>
       <find>pencil</find>
       <find>brush</find>
-      <find>size</find>
       <find>hboxSquare</find>
       <find>updateTransform</find>
       <find>yCor</find>
       <find>yCorA</find>
+      <find>tools</find>
+      <find>size</find>
+      <find>gc</find>
+      <find>undo</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -234,11 +191,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/paint_gui.fxml" />
         <option value="/CSS Fragment (Controller.java:4764).css" />
         <option value="$PROJECT_DIR$/src/sample/Shapes2D.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/FileSaver.java" />
+        <option value="$PROJECT_DIR$/src/sample/paint_gui.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
       </list>
     </option>
@@ -257,10 +214,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1612" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="462" />
+    <option name="y" value="80" />
+    <option name="width" value="982" />
     <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -282,7 +239,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -305,9 +265,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -555,7 +512,13 @@
       <workItem from="1512079944801" duration="987000" />
       <workItem from="1512126764769" duration="7265000" />
       <workItem from="1512144843466" duration="4643000" />
-      <workItem from="1512651517715" duration="6234000" />
+      <workItem from="1512651517715" duration="6361000" />
+      <workItem from="1512739002877" duration="10211000" />
+      <workItem from="1512759220741" duration="4458000" />
+      <workItem from="1513013473035" duration="520000" />
+      <workItem from="1514927381173" duration="7692000" />
+      <workItem from="1514975033266" duration="138000" />
+      <workItem from="1515282982754" duration="604000" />
     </task>
     <task id="LOCAL-00001" summary="synced IDE with git">
       <created>1509306104953</created>
@@ -568,10 +531,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239446000" />
+    <option name="totallyTimeSpent" value="263196000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -582,8 +545,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18557794" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23860021" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18557794" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -593,8 +556,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25768822" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -635,7 +598,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="37" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -644,6 +607,57 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/sample/FileSaver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3859">
+          <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2822">
+          <caret line="166" column="61" lean-forward="true" selection-start-line="166" selection-start-column="61" selection-end-line="166" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -658,13 +672,16 @@
           <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -680,60 +697,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
           <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/FileSaver.java">
@@ -763,60 +734,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
           <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
@@ -825,13 +750,16 @@
           <caret line="277" column="0" lean-forward="true" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -855,60 +783,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
           <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
@@ -917,13 +799,16 @@
           <caret line="233" column="49" lean-forward="false" selection-start-line="233" selection-start-column="49" selection-end-line="233" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -947,60 +832,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
           <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
@@ -1009,13 +848,16 @@
           <caret line="314" column="5" lean-forward="true" selection-start-line="314" selection-start-column="5" selection-end-line="314" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -1039,60 +881,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
           <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
@@ -1101,13 +897,16 @@
           <caret line="217" column="40" lean-forward="true" selection-start-line="217" selection-start-column="40" selection-end-line="217" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -1131,60 +930,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
           <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
@@ -1193,13 +946,16 @@
           <caret line="184" column="7" lean-forward="true" selection-start-line="184" selection-start-column="7" selection-end-line="184" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -1220,13 +976,16 @@
           <caret line="108" column="31" lean-forward="false" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -1242,60 +1001,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
           <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
@@ -1315,60 +1028,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
@@ -1377,13 +1044,16 @@
           <caret line="149" column="32" lean-forward="true" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -1407,60 +1077,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
@@ -1469,13 +1093,16 @@
           <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
@@ -1499,60 +1126,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
@@ -1561,80 +1142,37 @@
           <caret line="256" column="17" lean-forward="true" selection-start-line="256" selection-start-column="17" selection-end-line="256" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/ImageCursor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3859">
-          <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding>
-            <marker date="1512653775147" expanded="true" signature="34088:34220" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38279" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38300" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34088:38318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34251:34574" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34600:38255" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34714:38228" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34744:38196" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34858:38165" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="34896:38127" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35013:35603" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35057:35565" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35138:35520" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35185:35311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35364:35471" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35726:36318" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35770:36280" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35851:36235" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="35898:36026" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36079:36186" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36440:36874" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36484:36836" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36565:36791" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="36612:36742" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37003:37412" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37047:37405" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37128:37360" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37175:37311" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37532:37964" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37576:37926" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37657:37881" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="37704:37832" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38414:39440" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38434:39420" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38759:39092" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38783:38932" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="38958:39066" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39284:39399" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39314:39374" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39533:40772" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="39561:40089" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40114:40227" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40247:40754" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40612:40733" ph="..." />
-            <marker date="1512653775147" expanded="true" signature="40645:40708" ph="..." />
-          </folding>
+        <state relative-caret-position="223">
+          <caret line="639" column="27" lean-forward="false" selection-start-line="639" selection-start-column="27" selection-end-line="639" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/paint_gui.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="646">
+          <caret line="38" column="38" lean-forward="false" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1642,34 +1180,45 @@
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="15" lean-forward="true" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/FileSaver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        <state relative-caret-position="255">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="170" column="0" lean-forward="true" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+        <state relative-caret-position="395">
+          <caret line="424" column="37" lean-forward="true" selection-start-line="424" selection-start-column="37" selection-end-line="424" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="n#!!doc;n#hboxLine#0;n#Controller#0" expanded="false" />
             <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#setSize#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#handleMenu#0;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOverColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
           </folding>
