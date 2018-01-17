@@ -18,6 +18,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -61,6 +62,8 @@ public class Controller {
     private MenuItem mItemExit;
     @FXML
     private MenuItem mItemRevert;
+    @FXML
+    private MenuItem mItemRedo;
     @FXML
     private HBox hboxDefColor1;
     @FXML
@@ -151,7 +154,7 @@ public class Controller {
 
     private GraphicsContext gc;
 
-    private Shapes2D shapeDrawer;
+    private Shapes2D shapeDrawer = new Shapes2D();
 
     private HBox[] tools;
     private HBox[] shapes;
@@ -171,8 +174,9 @@ public class Controller {
     void initialize() {
         gc = drawingCanvas.getGraphicsContext2D();
 
+        shapeDrawer.setCanvas(drawingCanvas);
+
         fileSaver = new FileSaver(drawingCanvas);
-        shapeDrawer = new Shapes2D(gc);
 
         list = new ArrayList<>();
         list.add(drawingCanvas);
@@ -198,6 +202,7 @@ public class Controller {
         handleMenu();
         setOnShutDown();
         undo();
+        redo();
     }
 
     /*
@@ -282,6 +287,8 @@ public class Controller {
         });
 
         mItemRevert.setAccelerator(new KeyCodeCombination(KeyCode.Z, KeyCombination.CONTROL_DOWN));
+
+        mItemRedo.setAccelerator(new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_DOWN));
 
         mItemExit.setOnAction(event -> {
             changesWarning(true);
@@ -370,7 +377,7 @@ public class Controller {
         });
         txtCanvasSize.setText(String.format("%.2f, %.2fpx", drawingCanvas.getWidth(), drawingCanvas.getHeight()));
 
-        drawingCanvas.setOnMousePressed(event -> {
+        list.get(counter).setOnMousePressed(event -> {
             Canvas s = new Canvas(drawingCanvas.getWidth(), drawingCanvas.getHeight());
             drawingCanvas = s;
             gc = drawingCanvas.getGraphicsContext2D();
@@ -408,9 +415,6 @@ public class Controller {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
             }
-            if(toolPressed == hboxRubber){
-                
-            }
         });
 
 
@@ -418,11 +422,11 @@ public class Controller {
         Handle shapes.
          */
         list.get(counter).setOnMouseReleased(event -> {
-            shapeDrawer = new Shapes2D(gc);
+            shapeDrawer.setCanvas(drawingCanvas);
             x2 = event.getX();
             y2 = event.getY();
 
-            if (x1 == x2 && y1 == y2)
+            if (x1 == x2 && y1 == y2 && !toolIsPressed)
                 return;
 
             changesMade = true;
@@ -456,18 +460,24 @@ public class Controller {
         });
     }
 
-    void undo(){
-        mItemRevert.setOnAction(e -> {
-            if(counter >= 1){
-                gc  = list.get(counter).getGraphicsContext2D();
-                gc.clearRect(0,0, drawingCanvas.getWidth(), drawingCanvas.getHeight());
-                drawingCanvas = list.get(counter - 1);
-                list.remove(counter);
-                counter--;
+    void redo(){
+        mItemRedo.setOnAction(e -> {
+            if(counter < list.size() - 1){
+                gc = list.get(counter++).getGraphicsContext2D();
+                anchorPane.getChildren().add(list.get(counter));
             }
         });
     }
 
+    void undo(){
+        mItemRevert.setOnAction(e -> {
+            if(counter > 0){
+                gc = list.get(counter).getGraphicsContext2D();
+                anchorPane.getChildren().remove(list.get(counter));
+                counter--;
+            }
+        });
+    }
 
     private boolean toolIsPressed;
 

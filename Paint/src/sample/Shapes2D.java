@@ -1,12 +1,15 @@
 package sample;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Shapes2D {
+    private Canvas c;
     private GraphicsContext gc;
 
-    public Shapes2D(GraphicsContext gc) {
-        this.gc = gc;
+    public void setCanvas(Canvas c){
+        this.c = c;
+        gc = c.getGraphicsContext2D();
     }
 
     public void drawLine(double x2, double y2) {

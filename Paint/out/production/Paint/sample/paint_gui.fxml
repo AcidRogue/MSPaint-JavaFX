@@ -33,6 +33,7 @@
             <MenuItem fx:id="mItemSaveAs" mnemonicParsing="false" text="Save As…" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem fx:id="mItemRevert" mnemonicParsing="false" text="Revert" />
+                  <MenuItem fx:id="mItemRedo" mnemonicParsing="false" text="Redo" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Preferences…" />
             <SeparatorMenuItem mnemonicParsing="false" />
