@@ -10,4 +10,4 @@ To run the program simply download and run the Paint.jar file located in **MSPai
 
 **Examples of features**
 
-In this program you can do basic drawing, and create a few shapes shapes.
+In this program you can do basic drawing, and create a few shapes.
