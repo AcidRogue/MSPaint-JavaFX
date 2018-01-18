@@ -165,7 +165,7 @@ public class Controller {
     private HBox toolPressed;
 
     private List<Canvas> list;
-    private int counter = 0;
+    private int counter = -1;
 
     /*
     Main method that is called when the program is run. Used for initializing methods and variables.
@@ -179,7 +179,6 @@ public class Controller {
         fileSaver = new FileSaver(drawingCanvas);
 
         list = new ArrayList<>();
-        list.add(drawingCanvas);
 
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
@@ -369,20 +368,33 @@ public class Controller {
     Logic for when the mouse is pressed.
      */
     private void handleDrawingCanvas() {
-        list.get(counter).setOnMouseMoved(event -> {
+        drawingCanvas.setOnMouseMoved(event -> {
             txtCoordinates.setText(String.format("%.2f, %.2fpx", event.getX(), event.getY()));
         });
-        list.get(counter).setOnMouseExited(event -> {
+        drawingCanvas.setOnMouseExited(event -> {
             txtCoordinates.setText("");
         });
         txtCanvasSize.setText(String.format("%.2f, %.2fpx", drawingCanvas.getWidth(), drawingCanvas.getHeight()));
 
-        list.get(counter).setOnMousePressed(event -> {
-            Canvas s = new Canvas(drawingCanvas.getWidth(), drawingCanvas.getHeight());
-            drawingCanvas = s;
-            gc = drawingCanvas.getGraphicsContext2D();
-            list.add(s);
-            counter++;
+        drawingCanvas.setOnMousePressed(event -> {
+            Canvas c = new Canvas(drawingCanvas.getWidth(), drawingCanvas.getHeight());
+            c.setOnMousePressed(drawingCanvas.getOnMousePressed());
+            c.setOnMouseDragged(drawingCanvas.getOnMouseDragged());
+
+            try{
+                if(list.contains(list.get(++counter))){
+                    for (int i = list.size() - 1; i >= counter; i--) {
+                        list.remove(i);
+                    }
+                }
+            }
+            catch(IndexOutOfBoundsException e){
+                
+            }
+
+            list.add(c);
+            anchorPane.getChildren().add(c);
+            gc = c.getGraphicsContext2D();
 
             gc.setLineWidth(size);
             if (event.getButton() == MouseButton.PRIMARY) {
@@ -404,12 +416,10 @@ public class Controller {
             gc.beginPath();
             gc.moveTo(x1, y1);
             changesMade = true;
-            anchorPane.getChildren().add(s);
-            handleDrawingCanvas();
         });
 
 
-        list.get(counter).setOnMouseDragged(event -> {
+        drawingCanvas.setOnMouseDragged(event -> {
             changesMade = true;
             if (!toolIsPressed) {
                 gc.lineTo(event.getX(), event.getY());
@@ -421,7 +431,7 @@ public class Controller {
         /*
         Handle shapes.
          */
-        list.get(counter).setOnMouseReleased(event -> {
+        drawingCanvas.setOnMouseReleased(event -> {
             shapeDrawer.setCanvas(drawingCanvas);
             x2 = event.getX();
             y2 = event.getY();
@@ -462,19 +472,15 @@ public class Controller {
 
     void redo(){
         mItemRedo.setOnAction(e -> {
-            if(counter < list.size() - 1){
-                gc = list.get(counter++).getGraphicsContext2D();
-                anchorPane.getChildren().add(list.get(counter));
-            }
+            if(counter < list.size() - 1)
+                anchorPane.getChildren().add(list.get(++counter));
         });
     }
 
     void undo(){
         mItemRevert.setOnAction(e -> {
-            if(counter > 0){
-                gc = list.get(counter).getGraphicsContext2D();
-                anchorPane.getChildren().remove(list.get(counter));
-                counter--;
+            if(counter >= 0){
+                anchorPane.getChildren().remove(list.get(counter--));
             }
         });
     }
