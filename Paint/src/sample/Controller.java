@@ -18,7 +18,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -162,7 +161,7 @@ public class Controller {
     private HBox[] hboxes;
 
     private HBox defColorPressed;
-    private HBox toolPressed;
+    private HBox shapePressed;
 
     private List<Canvas> list;
     private int counter = -1;
@@ -380,21 +379,20 @@ public class Controller {
             Canvas c = new Canvas(drawingCanvas.getWidth(), drawingCanvas.getHeight());
             c.setOnMousePressed(drawingCanvas.getOnMousePressed());
             c.setOnMouseDragged(drawingCanvas.getOnMouseDragged());
+            c.setOnMouseReleased(drawingCanvas.getOnMouseReleased());
 
-            try{
-                if(list.contains(list.get(++counter))){
-                    for (int i = list.size() - 1; i >= counter; i--) {
-                        list.remove(i);
-                    }
+
+            if (list.contains(list.get(++counter))) {
+                for (int i = list.size() - 1; i >= counter; i--) {
+                    list.remove(i);
                 }
             }
-            catch(IndexOutOfBoundsException e){
-                
-            }
+
 
             list.add(c);
             anchorPane.getChildren().add(c);
             gc = c.getGraphicsContext2D();
+            shapeDrawer.setCanvas(c);
 
             gc.setLineWidth(size);
             if (event.getButton() == MouseButton.PRIMARY) {
@@ -404,7 +402,7 @@ public class Controller {
             }
             x1 = event.getX();
             y1 = event.getY();
-            if (toolPressed == hboxPolygon) {
+            if (shapePressed == hboxPolygon) {
                 if (!polygonIsFirst) {
                     x1 = x2;
                     y1 = y2;
@@ -421,7 +419,7 @@ public class Controller {
 
         drawingCanvas.setOnMouseDragged(event -> {
             changesMade = true;
-            if (!toolIsPressed) {
+            if (!shapeIsPressed) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
             }
@@ -432,11 +430,11 @@ public class Controller {
         Handle shapes.
          */
         drawingCanvas.setOnMouseReleased(event -> {
-            shapeDrawer.setCanvas(drawingCanvas);
+
             x2 = event.getX();
             y2 = event.getY();
 
-            if (x1 == x2 && y1 == y2 && !toolIsPressed)
+            if (x1 == x2 && y1 == y2 && shapeIsPressed)
                 return;
 
             changesMade = true;
@@ -444,17 +442,17 @@ public class Controller {
             double width = x2 - x1;
             double height = y2 - y1;
 
-            if (toolPressed == hboxLine) {
+            if (shapePressed == hboxLine) {
                 shapeDrawer.drawLine(x2, y2);
-            } else if (toolPressed == hboxRectangle) {
+            } else if (shapePressed == hboxRectangle) {
                 shapeDrawer.drawRectangle(x1, y1, width, height);
-            } else if (toolPressed == hboxCircle) {
+            } else if (shapePressed == hboxCircle) {
                 shapeDrawer.drawOval(x1, y1, width, height);
-            } else if (toolPressed == hboxTriangle) {
+            } else if (shapePressed == hboxTriangle) {
                 shapeDrawer.drawTriangle(x1, y1, x2, y2, width);
-            } else if (toolPressed == hboxRoundRectangle) {
+            } else if (shapePressed == hboxRoundRectangle) {
                 shapeDrawer.drawRoundRectangle(x1, y1, width, height);
-            } else if (toolPressed == hboxPolygon) {
+            } else if (shapePressed == hboxPolygon) {
                 if (polygonIsFirst) {
                     polygonIsFirst = false;
                 }
@@ -470,41 +468,39 @@ public class Controller {
         });
     }
 
-    void redo(){
+    void redo() {
         mItemRedo.setOnAction(e -> {
-            if(counter < list.size() - 1)
+            if (counter < list.size() - 1) {
                 anchorPane.getChildren().add(list.get(++counter));
+            }
         });
     }
 
-    void undo(){
+    void undo() {
         mItemRevert.setOnAction(e -> {
-            if(counter >= 0){
+            if (counter >= 0) {
                 anchorPane.getChildren().remove(list.get(counter--));
             }
         });
     }
 
-    private boolean toolIsPressed;
+    private boolean shapeIsPressed;
 
-    private void toolsForEach(HBox[] tools){
-        for (HBox tool : tools) {
-            tool.setOnMouseClicked(event -> {
-                if (toolPressed == null) {
-                    toolPressed = tool;
-                    toolIsPressed = true;
-                    toolPressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
-                } else if (tool != toolPressed) {
-                    toolIsPressed = true;
-                    toolPressed.setStyle("");
-                    toolPressed = tool;
+    private void toolsForEach(HBox[] shapes) {
+        for (HBox shape : shapes) {
+            shape.setOnMouseClicked(event -> {
+                if (shapePressed == null) {
+                    shapePressed = shape;
+                    shapeIsPressed = true;
+                    shapePressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
+                } else if (shape != shapePressed) {
+                    shapeIsPressed = true;
+                    shapePressed.setStyle("");
+                    shapePressed = shape;
                 } else {
-                    toolPressed.setStyle("");
-                    toolPressed = null;
-                    toolIsPressed = false;
-                }
-                if(toolPressed == hboxRubber){
-                    list.get(counter).setCursor(new ImageCursor(new Image("./images/rubbersize" + size + ".png")));
+                    shapePressed.setStyle("");
+                    shapePressed = null;
+                    shapeIsPressed = false;
                 }
             });
         }
@@ -569,7 +565,7 @@ public class Controller {
         }
         for (HBox shape : shapes) {
             shape.setOnMouseEntered(event -> {
-                if (shape != toolPressed) {
+                if (shape != shapePressed) {
                     shape.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.1)");
                 }
             });
@@ -603,7 +599,7 @@ public class Controller {
         }
         for (HBox shape : shapes) {
             shape.setOnMouseExited(event -> {
-                if (shape != toolPressed) {
+                if (shape != shapePressed) {
                     shape.setStyle("");
                 }
             });
