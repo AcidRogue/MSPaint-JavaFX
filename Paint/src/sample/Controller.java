@@ -13,7 +13,6 @@ import java.util.regex.*;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
-import javafx.scene.ImageCursor;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -161,7 +160,7 @@ public class Controller {
     private HBox[] hboxes;
 
     private HBox defColorPressed;
-    private HBox shapePressed;
+    private HBox toolPressed;
 
     private List<Canvas> list;
     private int counter = -1;
@@ -381,18 +380,22 @@ public class Controller {
             c.setOnMouseDragged(drawingCanvas.getOnMouseDragged());
             c.setOnMouseReleased(drawingCanvas.getOnMouseReleased());
 
-
-            if (list.contains(list.get(++counter))) {
-                for (int i = list.size() - 1; i >= counter; i--) {
-                    list.remove(i);
+            try{
+                if (list.contains(list.get(++counter))) {
+                    for (int i = list.size() - 1; i >= counter; i--) {
+                        list.remove(i);
+                    }
                 }
             }
+            catch(IndexOutOfBoundsException e){
 
+            }
 
             list.add(c);
             anchorPane.getChildren().add(c);
             gc = c.getGraphicsContext2D();
             shapeDrawer.setCanvas(c);
+
 
             gc.setLineWidth(size);
             if (event.getButton() == MouseButton.PRIMARY) {
@@ -400,9 +403,16 @@ public class Controller {
             } else if (event.getButton() == MouseButton.SECONDARY) {
                 gc.setStroke(secondaryColor);
             }
+
+            if (toolIsPressed){
+                if(toolPressed == hboxRubber){
+                    gc.setStroke(Color.WHITE);
+                }
+            }
+
             x1 = event.getX();
             y1 = event.getY();
-            if (shapePressed == hboxPolygon) {
+            if (toolPressed == hboxPolygon) {
                 if (!polygonIsFirst) {
                     x1 = x2;
                     y1 = y2;
@@ -419,10 +429,11 @@ public class Controller {
 
         drawingCanvas.setOnMouseDragged(event -> {
             changesMade = true;
-            if (!shapeIsPressed) {
+            if (!toolIsPressed || toolPressed == hboxRubber) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
             }
+
         });
 
 
@@ -434,7 +445,7 @@ public class Controller {
             x2 = event.getX();
             y2 = event.getY();
 
-            if (x1 == x2 && y1 == y2 && shapeIsPressed)
+            if (x1 == x2 && y1 == y2 && toolIsPressed)
                 return;
 
             changesMade = true;
@@ -442,17 +453,17 @@ public class Controller {
             double width = x2 - x1;
             double height = y2 - y1;
 
-            if (shapePressed == hboxLine) {
+            if (toolPressed == hboxLine) {
                 shapeDrawer.drawLine(x2, y2);
-            } else if (shapePressed == hboxRectangle) {
+            } else if (toolPressed == hboxRectangle) {
                 shapeDrawer.drawRectangle(x1, y1, width, height);
-            } else if (shapePressed == hboxCircle) {
+            } else if (toolPressed == hboxCircle) {
                 shapeDrawer.drawOval(x1, y1, width, height);
-            } else if (shapePressed == hboxTriangle) {
+            } else if (toolPressed == hboxTriangle) {
                 shapeDrawer.drawTriangle(x1, y1, x2, y2, width);
-            } else if (shapePressed == hboxRoundRectangle) {
+            } else if (toolPressed == hboxRoundRectangle) {
                 shapeDrawer.drawRoundRectangle(x1, y1, width, height);
-            } else if (shapePressed == hboxPolygon) {
+            } else if (toolPressed == hboxPolygon) {
                 if (polygonIsFirst) {
                     polygonIsFirst = false;
                 }
@@ -484,23 +495,23 @@ public class Controller {
         });
     }
 
-    private boolean shapeIsPressed;
+    private boolean toolIsPressed;
 
     private void toolsForEach(HBox[] shapes) {
         for (HBox shape : shapes) {
             shape.setOnMouseClicked(event -> {
-                if (shapePressed == null) {
-                    shapePressed = shape;
-                    shapeIsPressed = true;
-                    shapePressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
-                } else if (shape != shapePressed) {
-                    shapeIsPressed = true;
-                    shapePressed.setStyle("");
-                    shapePressed = shape;
+                if (toolPressed == null) {
+                    toolPressed = shape;
+                    toolIsPressed = true;
+                    toolPressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
+                } else if (shape != toolPressed) {
+                    toolIsPressed = true;
+                    toolPressed.setStyle("");
+                    toolPressed = shape;
                 } else {
-                    shapePressed.setStyle("");
-                    shapePressed = null;
-                    shapeIsPressed = false;
+                    toolPressed.setStyle("");
+                    toolPressed = null;
+                    toolIsPressed = false;
                 }
             });
         }
@@ -565,7 +576,7 @@ public class Controller {
         }
         for (HBox shape : shapes) {
             shape.setOnMouseEntered(event -> {
-                if (shape != shapePressed) {
+                if (shape != toolPressed) {
                     shape.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.1)");
                 }
             });
@@ -599,7 +610,7 @@ public class Controller {
         }
         for (HBox shape : shapes) {
             shape.setOnMouseExited(event -> {
-                if (shape != shapePressed) {
+                if (shape != toolPressed) {
                     shape.setStyle("");
                 }
             });
