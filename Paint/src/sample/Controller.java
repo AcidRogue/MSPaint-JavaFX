@@ -17,6 +17,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -145,7 +148,7 @@ public class Controller {
     private GridPane btnSizeGridBox;
     //endregion
 
-    private int size = 1;
+    private double size = 1.2;
 
     private Color primaryColor = Color.rgb(0, 0, 0);
     private Color secondaryColor = Color.rgb(255, 255, 255);
@@ -172,19 +175,22 @@ public class Controller {
     void initialize() {
         gc = drawingCanvas.getGraphicsContext2D();
 
-        shapeDrawer.setCanvas(drawingCanvas);
-
-        fileSaver = new FileSaver(drawingCanvas);
+        shapeDrawer.setCanvas(drawingCanvas, Color.BLACK);
 
         list = new ArrayList<>();
 
+        writableImage = new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight());
+
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
-        tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText};
+        tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText, hboxBrush};
         shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle, hboxTriangle, hboxRoundRectangle, hboxPolygon};
         defColors = new HBox[]{hboxDefColor1, hboxDefColor2};
 
         hboxDefColor1.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgb(97, 167, 237, 0.3)");
         defColorPressed = (HBox) defColor1.getParent();
+
+        toolPressed = hboxBrush;
+        hboxBrush.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
 
         btnSize.getItems().addAll("1px", "3px", "5px", "8px");
         btnSize.setValue("1px");
@@ -225,12 +231,14 @@ public class Controller {
 
     private void saveToFile(String type) {
         if (f != null) {
+            fileSaver = new FileSaver(list);
             fileSaver.saveToFile(type);
         }
     }
 
 
     private void saveToFile() {
+        fileSaver = new FileSaver(list);
         fileSaver.saveToFile();
     }
 
@@ -393,8 +401,6 @@ public class Controller {
             list.add(c);
             anchorPane.getChildren().add(c);
             gc = c.getGraphicsContext2D();
-            shapeDrawer.setCanvas(c);
-
 
             gc.setLineWidth(size);
 
@@ -402,8 +408,10 @@ public class Controller {
             if (!toolIsPressed) {
                 if (event.getButton() == MouseButton.PRIMARY) {
                     gc.setStroke(primaryColor);
+                    shapeDrawer.setCanvas(c, primaryColor);
                 } else if (event.getButton() == MouseButton.SECONDARY) {
                     gc.setStroke(secondaryColor);
+                    shapeDrawer.setCanvas(c, secondaryColor);
                 }
             } else {
                 if (toolPressed == hboxRubber) {
@@ -433,11 +441,10 @@ public class Controller {
 
         drawingCanvas.setOnMouseDragged(event -> {
             changesMade = true;
-            if (!toolIsPressed || toolPressed == hboxRubber || toolPressed == hboxPencil) {
+            if (!toolIsPressed || toolPressed == hboxRubber || toolPressed == hboxPencil || toolPressed == hboxBrush) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
             }
-
         });
 
 
@@ -480,8 +487,11 @@ public class Controller {
                 gc.lineTo(x2, y2);
                 gc.stroke();
             }
+
         });
     }
+
+    private WritableImage writableImage;;
 
     void redo() {
         mItemRedo.setOnAction(e -> {
@@ -512,10 +522,6 @@ public class Controller {
                     toolIsPressed = true;
                     toolPressed.setStyle("");
                     toolPressed = tool;
-                } else {
-                    toolPressed.setStyle("");
-                    toolPressed = null;
-                    toolIsPressed = false;
                 }
             });
         }
@@ -633,6 +639,13 @@ public class Controller {
         btnSize.setOnMouseExited(event -> {
             btnSizeGridBox.setStyle("");
         });
+    }
+
+
+    private void handleDropper(){
+        //hboxDropper.setOnMousePressed(event -> {
+        //    PixelReader pr = drawingCanvas.
+        //});
     }
 
 
