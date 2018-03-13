@@ -380,14 +380,13 @@ public class Controller {
             c.setOnMouseDragged(drawingCanvas.getOnMouseDragged());
             c.setOnMouseReleased(drawingCanvas.getOnMouseReleased());
 
-            try{
+            try {
                 if (list.contains(list.get(++counter))) {
                     for (int i = list.size() - 1; i >= counter; i--) {
                         list.remove(i);
                     }
                 }
-            }
-            catch(IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
 
             }
 
@@ -398,15 +397,20 @@ public class Controller {
 
 
             gc.setLineWidth(size);
-            if (event.getButton() == MouseButton.PRIMARY) {
-                gc.setStroke(primaryColor);
-            } else if (event.getButton() == MouseButton.SECONDARY) {
-                gc.setStroke(secondaryColor);
-            }
 
-            if (toolIsPressed){
-                if(toolPressed == hboxRubber){
+
+            if (!toolIsPressed) {
+                if (event.getButton() == MouseButton.PRIMARY) {
+                    gc.setStroke(primaryColor);
+                } else if (event.getButton() == MouseButton.SECONDARY) {
+                    gc.setStroke(secondaryColor);
+                }
+            } else {
+                if (toolPressed == hboxRubber) {
                     gc.setStroke(Color.WHITE);
+                }
+                if (toolPressed == hboxPencil) {
+                    gc.setLineWidth(0.3 * size);
                 }
             }
 
@@ -429,7 +433,7 @@ public class Controller {
 
         drawingCanvas.setOnMouseDragged(event -> {
             changesMade = true;
-            if (!toolIsPressed || toolPressed == hboxRubber) {
+            if (!toolIsPressed || toolPressed == hboxRubber || toolPressed == hboxPencil) {
                 gc.lineTo(event.getX(), event.getY());
                 gc.stroke();
             }
@@ -497,17 +501,17 @@ public class Controller {
 
     private boolean toolIsPressed;
 
-    private void toolsForEach(HBox[] shapes) {
-        for (HBox shape : shapes) {
-            shape.setOnMouseClicked(event -> {
+    private void toolsForEach(HBox[] tools) {
+        for (HBox tool : tools) {
+            tool.setOnMouseClicked(event -> {
                 if (toolPressed == null) {
-                    toolPressed = shape;
+                    toolPressed = tool;
                     toolIsPressed = true;
                     toolPressed.setStyle("-fx-border-color: rgb(97, 167, 237); -fx-background-color: rgba(97, 167, 237, 0.3)");
-                } else if (shape != toolPressed) {
+                } else if (tool != toolPressed) {
                     toolIsPressed = true;
                     toolPressed.setStyle("");
-                    toolPressed = shape;
+                    toolPressed = tool;
                 } else {
                     toolPressed.setStyle("");
                     toolPressed = null;
@@ -571,7 +575,9 @@ public class Controller {
         }
         for (HBox tool : tools) {
             tool.setOnMouseEntered(event -> {
-                tool.setStyle("-fx-border-color: rgb(97, 167, 237);");
+                if (tool != toolPressed) {
+                    tool.setStyle("-fx-border-color: rgb(97, 167, 237);");
+                }
             });
         }
         for (HBox shape : shapes) {
@@ -605,7 +611,9 @@ public class Controller {
         }
         for (HBox tool : tools) {
             tool.setOnMouseExited(event -> {
-                tool.setStyle("");
+                if (tool != toolPressed) {
+                    tool.setStyle("");
+                }
             });
         }
         for (HBox shape : shapes) {

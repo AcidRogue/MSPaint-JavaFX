@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="vBox" prefHeight="817.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox fx:id="vBox" prefHeight="817.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -648,7 +648,10 @@
           <RowConstraints maxHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text fx:id="txtCoordinates" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="198.13671875" />
+            <Text fx:id="txtCoordinates" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="198.13671875">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Text>
             <Text fx:id="txtCanvasSize" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="187.13671875" GridPane.columnIndex="2" />
             <Separator halignment="RIGHT" orientation="VERTICAL" prefHeight="25.0" prefWidth="0.0" valignment="TOP">
                <GridPane.margin>
