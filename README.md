@@ -6,7 +6,7 @@ MS Paint like app made in JavaFX. It has a lot of features but is still WiP.
 
 **How to run**
 
-To run the program simply download and run the Paint.jar file located in **MSPaint-JavaFX/Paint/out/artifacts/Paint_jar**
+To run the program simply download and run the Paint.jar file located in **MSPaint-JavaFX/Paint/out/artifacts/Paint/Paint.jar**
 
 **Examples of features**
 
