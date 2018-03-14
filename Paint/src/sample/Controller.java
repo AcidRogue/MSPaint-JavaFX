@@ -13,6 +13,7 @@ import java.util.regex.*;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -369,6 +370,12 @@ public class Controller {
 
     private boolean polygonIsFirst = true;
 
+    private String hexToRgb(Color c) {
+        int r = Integer.valueOf(c.toString().substring(2, 4), 16);
+        int g = Integer.valueOf(c.toString().substring(4, 6), 16);
+        int b = Integer.valueOf(c.toString().substring(6, 8), 16);
+        return String.format("rgb(%d, %d, %d)", r, g, b);
+    }
 
     /*
     Logic for when the mouse is pressed.
@@ -404,8 +411,11 @@ public class Controller {
 
             gc.setLineWidth(size);
 
+            x1 = event.getX();
+            y1 = event.getY();
 
-            if (!toolIsPressed) {
+
+            if (!toolIsPressed || toolPressed == hboxBrush) {
                 if (event.getButton() == MouseButton.PRIMARY) {
                     gc.setStroke(primaryColor);
                     shapeDrawer.setCanvas(c, primaryColor);
@@ -417,22 +427,35 @@ public class Controller {
                 if (toolPressed == hboxRubber) {
                     gc.setStroke(Color.WHITE);
                 }
-                if (toolPressed == hboxPencil) {
+                else if (toolPressed == hboxPencil) {
                     gc.setLineWidth(0.3 * size);
+                }
+                else if (toolPressed == hboxDropper) {
+                    Canvas temp = new Canvas((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight());
+                    SnapshotParameters params = new SnapshotParameters();
+                    params.setFill(Color.TRANSPARENT);
+                    for (int i = 0; i < list.size(); i++) {
+                        WritableImage image = list.get(i).snapshot(params, null);
+                        temp.getGraphicsContext2D().drawImage(image, 0, 0);
+                    }
+                    PixelReader pr = temp.snapshot(null, new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight())).getPixelReader();
+                    Color tempColor = pr.getColor((int) event.getX(), (int) event.getY());
+                    shapeDrawer.setCanvas(c, tempColor);
+                    defColor1.setStyle("-fx-border-color: gray; -fx-background-color: " + hexToRgb(tempColor));
+                    primaryColor = tempColor;
+                    gc.setStroke(primaryColor);
+                }
+                else if (toolPressed == hboxPolygon) {
+                    if (!polygonIsFirst) {
+                        x1 = x2;
+                        y1 = y2;
+                    } else {
+                        polyX = x1;
+                        polyY = y1;
+                    }
                 }
             }
 
-            x1 = event.getX();
-            y1 = event.getY();
-            if (toolPressed == hboxPolygon) {
-                if (!polygonIsFirst) {
-                    x1 = x2;
-                    y1 = y2;
-                } else {
-                    polyX = x1;
-                    polyY = y1;
-                }
-            }
             gc.beginPath();
             gc.moveTo(x1, y1);
             changesMade = true;
@@ -491,7 +514,8 @@ public class Controller {
         });
     }
 
-    private WritableImage writableImage;;
+    private WritableImage writableImage;
+    ;
 
     void redo() {
         mItemRedo.setOnAction(e -> {
@@ -642,11 +666,13 @@ public class Controller {
     }
 
 
-    private void handleDropper(){
-        //hboxDropper.setOnMousePressed(event -> {
-        //    PixelReader pr = drawingCanvas.
-        //});
-    }
+    //private void handleDropper(){
+    //    hboxDropper.setOnMousePressed(event -> {
+    //        PixelReader pr = drawingCanvas.snapshot(null, new WritableImage((int)drawingCanvas.getWidth(), (int)drawingCanvas.getHeight())).getPixelReader();
+    //        Color c = pr.getColor((int)event.getX(), (int)event.getY());
+    //        changeDefColor(c);
+    //    });
+    //}
 
 
     /*
