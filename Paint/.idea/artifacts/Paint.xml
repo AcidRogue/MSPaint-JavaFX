@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="Paint">
+    <output-path>$PROJECT_DIR$/out/artifacts/Paint</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="MSPaint-JavaFX" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Paint.jar">
+        <element id="module-output" name="Paint" />
+      </element>
+    </root>
+  </artifact>
+</component>
