@@ -180,8 +180,6 @@ public class Controller {
 
         list = new ArrayList<>();
 
-        writableImage = new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight());
-
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
         tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText, hboxBrush};
         shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle, hboxTriangle, hboxRoundRectangle, hboxPolygon};
@@ -248,17 +246,18 @@ public class Controller {
     Handles the buttons in the menu.
      */
     private void handleMenu() {
-        //Handles the first button of the 'File' menu.
+        //Handles the 'New' button of the 'File' menu.
         mItemNew.setOnAction(event -> {
             if (changesMade) {
                 changesWarning(false);
             }
             gc.clearRect(0, 0, drawingCanvas.getWidth(), drawingCanvas.getHeight());
+            list = new ArrayList<>();
             changesMade = false;
             firstTimeSave = true;
         });
 
-        //Handles the second button of the 'File' menu.
+        //Handles the 'Open' button of the 'File' menu.
         mItemOpen.setOnAction(event -> {
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"),
@@ -277,7 +276,7 @@ public class Controller {
             }
         });
 
-        //Handles the third button of the 'File' menu.
+        //Handles the 'Save' button of the 'File' menu.
         mItemSave.setOnAction(event -> {
             if (firstTimeSave) {
                 saveToFile();
@@ -287,7 +286,7 @@ public class Controller {
         });
         mItemSave.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN));
 
-        //Handles the fourth button of the 'File' menu.
+        //Handles the 'Save As' button of the 'File' menu.
         mItemSaveAs.setOnAction(event -> {
             saveToFile();
         });
@@ -371,10 +370,10 @@ public class Controller {
     private boolean polygonIsFirst = true;
 
     private String hexToRgb(Color c) {
-        int r = Integer.valueOf(c.toString().substring(2, 4), 16);
-        int g = Integer.valueOf(c.toString().substring(4, 6), 16);
-        int b = Integer.valueOf(c.toString().substring(6, 8), 16);
-        return String.format("rgb(%d, %d, %d)", r, g, b);
+        return String.format("rgb(%d, %d, %d)",
+                Integer.valueOf(c.toString().substring(2, 4), 16),
+                Integer.valueOf(c.toString().substring(4, 6), 16),
+                Integer.valueOf(c.toString().substring(6, 8), 16));
     }
 
     /*
@@ -431,13 +430,8 @@ public class Controller {
                     gc.setLineWidth(0.3 * size);
                 }
                 else if (toolPressed == hboxDropper) {
-                    Canvas temp = new Canvas((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight());
-                    SnapshotParameters params = new SnapshotParameters();
-                    params.setFill(Color.TRANSPARENT);
-                    for (int i = 0; i < list.size(); i++) {
-                        WritableImage image = list.get(i).snapshot(params, null);
-                        temp.getGraphicsContext2D().drawImage(image, 0, 0);
-                    }
+                    fileSaver = new FileSaver(list);
+                    Canvas temp = fileSaver.createCanvas(list);
                     PixelReader pr = temp.snapshot(null, new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight())).getPixelReader();
                     Color tempColor = pr.getColor((int) event.getX(), (int) event.getY());
                     shapeDrawer.setCanvas(c, tempColor);
@@ -513,9 +507,6 @@ public class Controller {
 
         });
     }
-
-    private WritableImage writableImage;
-    ;
 
     void redo() {
         mItemRedo.setOnAction(e -> {
@@ -664,15 +655,6 @@ public class Controller {
             btnSizeGridBox.setStyle("");
         });
     }
-
-
-    //private void handleDropper(){
-    //    hboxDropper.setOnMousePressed(event -> {
-    //        PixelReader pr = drawingCanvas.snapshot(null, new WritableImage((int)drawingCanvas.getWidth(), (int)drawingCanvas.getHeight())).getPixelReader();
-    //        Color c = pr.getColor((int)event.getX(), (int)event.getY());
-    //        changeDefColor(c);
-    //    });
-    //}
 
 
     /*
