@@ -16,13 +16,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
-import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
@@ -304,7 +302,7 @@ public class Controller {
         mItemPreferences.setOnAction(event -> {
             Stage stage = new Stage();
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/Preferences/sample.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/Preferences/preferences_gui.fxml"));
                 stage.setScene(new Scene(root));
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.showAndWait();
