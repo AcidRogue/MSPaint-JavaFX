@@ -7,14 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a13937b-eb9d-4c11-ad4c-d35af7460db7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Preferences/Controller.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Preferences/Main.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Paint/Paint.jar" afterPath="$PROJECT_DIR$/out/artifacts/Paint/Paint.jar" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Paint/Paint.jnlp" afterPath="$PROJECT_DIR$/out/artifacts/Paint/Paint.jnlp" />
       <change beforePath="$PROJECT_DIR$/out/production/Paint/sample/Controller.class" afterPath="$PROJECT_DIR$/out/production/Paint/sample/Controller.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Paint/sample/FileSaver.class" afterPath="$PROJECT_DIR$/out/production/Paint/sample/FileSaver.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Paint/sample/paint_gui.fxml" afterPath="$PROJECT_DIR$/out/production/Paint/sample/paint_gui.fxml" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/sample/Controller.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/FileSaver.java" afterPath="$PROJECT_DIR$/src/sample/FileSaver.java" />
+      <change beforePath="$PROJECT_DIR$/src/sample/paint_gui.fxml" afterPath="$PROJECT_DIR$/src/sample/paint_gui.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,6 +33,10 @@
             <state relative-caret-position="238">
               <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
+                <element signature="e#401#402#0" expanded="true" />
+                <element signature="e#430#431#0" expanded="true" />
+                <element signature="e#485#486#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
                 <element signature="e#885#886#0" expanded="true" />
                 <element signature="e#913#914#0" expanded="true" />
               </folding>
@@ -42,8 +47,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="776">
-              <caret line="415" column="0" lean-forward="true" selection-start-line="415" selection-start-column="0" selection-end-line="415" selection-end-column="0" />
+            <state relative-caret-position="2380">
+              <caret line="305" column="17" lean-forward="false" selection-start-line="305" selection-start-column="17" selection-end-line="305" selection-end-column="17" />
               <folding>
                 <element signature="n#!!doc;n#resources#0;n#Controller#0" expanded="false" />
                 <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
@@ -51,11 +56,10 @@
                 <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
                 <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
                 <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-                <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+                <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
                 <element signature="method#redo#0;class#Controller#0" expanded="false" />
                 <element signature="method#undo#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-                <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
                 <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -67,8 +71,8 @@
       <file leaf-file-name="FileSaver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/FileSaver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+            <state relative-caret-position="493">
+              <caret line="40" column="56" lean-forward="false" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,17 +80,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Shapes2D.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Shapes2D.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            <state relative-caret-position="697">
+              <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Preferences/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="72" lean-forward="true" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Preferences/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sample.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Preferences/sample.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -111,7 +157,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/sample/Shapes2D.java" />
         <option value="$PROJECT_DIR$/src/sample/FileSaver.java" />
+        <option value="$PROJECT_DIR$/src/Preferences/sample2.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Preferences/Main.java" />
+        <option value="$PROJECT_DIR$/src/Preferences/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/Preferences/Controller.java" />
       </list>
     </option>
   </component>
@@ -121,7 +171,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="462" />
     <option name="y" value="80" />
     <option name="width" value="982" />
@@ -143,7 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,15 +210,21 @@
               <item name="Paint" type="b2602c69:ProjectViewProjectNode" />
               <item name="Paint" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Preferences" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Paint" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Paint" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -180,6 +236,11 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kalin\Desktop\Programs\MSPaint-JavaFX\Paint\src\Preferences" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -313,14 +374,18 @@
       <workItem from="1521056800532" duration="997000" />
       <workItem from="1521128272939" duration="2193000" />
       <workItem from="1521136845353" duration="521000" />
+      <workItem from="1521143106322" duration="416000" />
+      <workItem from="1521145288400" duration="260000" />
+      <workItem from="1521145569421" duration="1528000" />
+      <workItem from="1521152092662" duration="975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27929000" />
+    <option name="totallyTimeSpent" value="31108000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -334,7 +399,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -364,11 +429,33 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/sample/FileSaver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -404,11 +491,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -421,6 +507,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -456,11 +546,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -473,6 +562,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -508,11 +601,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -525,6 +617,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -560,11 +656,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -577,6 +672,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -612,11 +711,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -629,6 +727,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -664,11 +766,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -681,6 +782,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -716,11 +821,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -733,6 +837,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -750,11 +858,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -785,6 +892,10 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
@@ -820,11 +931,10 @@
             <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
             <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
             <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
             <element signature="method#redo#0;class#Controller#0" expanded="false" />
             <element signature="method#undo#0;class#Controller#0" expanded="false" />
             <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
             <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
             <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
@@ -836,7 +946,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="2191" column="25" lean-forward="false" selection-start-line="2191" selection-start-column="25" selection-end-line="2191" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -865,33 +974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="125" column="11" lean-forward="false" selection-start-line="125" selection-start-column="11" selection-end-line="125" selection-end-column="11" />
-          <folding>
-            <element signature="e#3337#3338#0" expanded="false" />
-            <element signature="e#3363#3364#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="415" column="0" lean-forward="true" selection-start-line="415" selection-start-column="0" selection-end-line="415" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc;n#resources#0;n#Controller#0" expanded="false" />
-            <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
-            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
-            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
-            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
-            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
-            <element signature="method#hexToRgb#0;class#Controller#0" expanded="false" />
-            <element signature="method#redo#0;class#Controller#0" expanded="false" />
-            <element signature="method#undo#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleSize#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
-            <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -900,16 +982,27 @@
         <state relative-caret-position="238">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
             <element signature="e#885#886#0" expanded="true" />
             <element signature="e#913#914#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Testing/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="45" column="11" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="45" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/FileSaver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+        <state relative-caret-position="493">
+          <caret line="40" column="56" lean-forward="false" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -918,8 +1011,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Shapes2D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        <state relative-caret-position="697">
+          <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2380">
+          <caret line="305" column="17" lean-forward="false" selection-start-line="305" selection-start-column="17" selection-end-line="305" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc;n#resources#0;n#Controller#0" expanded="false" />
+            <element signature="method#changeDefColor#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#0;class#Controller#0" expanded="false" />
+            <element signature="method#saveToFile#1;class#Controller#0" expanded="false" />
+            <element signature="method#changesWarning#0;class#Controller#0" expanded="false" />
+            <element signature="method#setOnShutDown#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDrawingCanvas#0;class#Controller#0" expanded="false" />
+            <element signature="method#redo#0;class#Controller#0" expanded="false" />
+            <element signature="method#undo#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleToolsAndShapes#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseOver#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleOnMouseExitedColors#0;class#Controller#0" expanded="false" />
+            <element signature="method#handleDefColors#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Preferences/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="72" lean-forward="true" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Preferences/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Preferences/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
           <folding />
         </state>
       </provider>

@@ -35,7 +35,7 @@
             <MenuItem fx:id="mItemRevert" mnemonicParsing="false" text="Revert" />
                   <MenuItem fx:id="mItemRedo" mnemonicParsing="false" text="Redo" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <MenuItem fx:id="mItemPreferences" mnemonicParsing="false" text="Preferences…" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem fx:id="mItemExit" mnemonicParsing="false" text="Quit" />
           </items>

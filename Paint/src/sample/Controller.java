@@ -13,6 +13,9 @@ import java.util.regex.*;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -29,6 +32,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
@@ -60,6 +64,8 @@ public class Controller {
     private MenuItem mItemSaveAs;
     @FXML
     private MenuItem mItemNew;
+    @FXML
+    private MenuItem mItemPreferences;
     @FXML
     private MenuItem mItemExit;
     @FXML
@@ -295,6 +301,18 @@ public class Controller {
 
         mItemRedo.setAccelerator(new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_DOWN));
 
+        mItemPreferences.setOnAction(event -> {
+            Stage stage = new Stage();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/Preferences/sample.fxml"));
+                stage.setScene(new Scene(root));
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.showAndWait();
+            } catch (IOException e1) {
+
+            }
+        });
+
         mItemExit.setOnAction(event -> {
             changesWarning(true);
         });
@@ -425,11 +443,9 @@ public class Controller {
             } else {
                 if (toolPressed == hboxRubber) {
                     gc.setStroke(Color.WHITE);
-                }
-                else if (toolPressed == hboxPencil) {
+                } else if (toolPressed == hboxPencil) {
                     gc.setLineWidth(0.3 * size);
-                }
-                else if (toolPressed == hboxDropper) {
+                } else if (toolPressed == hboxDropper) {
                     fileSaver = new FileSaver(list);
                     Canvas temp = fileSaver.createCanvas(list);
                     PixelReader pr = temp.snapshot(null, new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight())).getPixelReader();
@@ -438,8 +454,7 @@ public class Controller {
                     defColor1.setStyle("-fx-border-color: gray; -fx-background-color: " + hexToRgb(tempColor));
                     primaryColor = tempColor;
                     gc.setStroke(primaryColor);
-                }
-                else if (toolPressed == hboxPolygon) {
+                } else if (toolPressed == hboxPolygon) {
                     if (!polygonIsFirst) {
                         x1 = x2;
                         y1 = y2;
