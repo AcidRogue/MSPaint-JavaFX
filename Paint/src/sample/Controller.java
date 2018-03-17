@@ -30,7 +30,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
@@ -88,7 +87,6 @@ public class Controller {
     private HBox hboxText;
     @FXML
     private HBox hboxBrush;
-    //region shapes
     @FXML
     private HBox hboxLine;
     @FXML
@@ -101,8 +99,6 @@ public class Controller {
     private HBox hboxRoundRectangle;
     @FXML
     private HBox hboxPolygon;
-    //endregion
-    //region colors
     @FXML
     private HBox hbox1;
     @FXML
@@ -147,8 +143,6 @@ public class Controller {
     private Text txtCoordinates;
     @FXML
     private Text txtCanvasSize;
-    //endregion
-
     @FXML
     private GridPane btnSizeGridBox;
     //endregion
@@ -181,6 +175,9 @@ public class Controller {
         gc = drawingCanvas.getGraphicsContext2D();
 
         shapeDrawer.setCanvas(drawingCanvas, Color.BLACK);
+
+        drawingCanvasWidth = (int) drawingCanvas.getWidth();
+        drawingCanvasHeight = (int) drawingCanvas.getHeight();
 
         list = new ArrayList<>();
 
@@ -231,6 +228,8 @@ public class Controller {
     private FileSaver fileSaver;
     static String saveFormatType;
 
+    static int drawingCanvasWidth;
+    static int drawingCanvasHeight;
 
     private void saveToFile(String type) {
         if (f != null) {
@@ -245,7 +244,6 @@ public class Controller {
         fileSaver.saveToFile();
     }
 
-
     /*
     Handles the buttons in the menu.
      */
@@ -255,7 +253,7 @@ public class Controller {
             if (changesMade) {
                 changesWarning(false);
             }
-            gc.clearRect(0, 0, drawingCanvas.getWidth(), drawingCanvas.getHeight());
+            gc.clearRect(0, 0, drawingCanvasWidth, drawingCanvasHeight);
             list = new ArrayList<>();
             changesMade = false;
             firstTimeSave = true;
@@ -275,7 +273,7 @@ public class Controller {
                     gc.drawImage(image, 0, 0);
                     changesMade = true;
                 } catch (IOException ex) {
-                    System.err.println(ex.getMessage());
+
                 }
             }
         });
@@ -288,6 +286,7 @@ public class Controller {
                 saveToFile(saveFormatType);
             }
         });
+
         mItemSave.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN));
 
         //Handles the 'Save As' button of the 'File' menu.
@@ -299,15 +298,16 @@ public class Controller {
 
         mItemRedo.setAccelerator(new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_DOWN));
 
+        //Handles the 'Preferences' button of the 'File' menu.
         mItemPreferences.setOnAction(event -> {
-            Stage stage = new Stage();
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/Preferences/preferences_gui.fxml"));
-                stage.setScene(new Scene(root));
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.showAndWait();
-            } catch (IOException e1) {
-
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Preferences/preferences_gui.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
 
@@ -405,7 +405,7 @@ public class Controller {
         txtCanvasSize.setText(String.format("%.2f, %.2fpx", drawingCanvas.getWidth(), drawingCanvas.getHeight()));
 
         drawingCanvas.setOnMousePressed(event -> {
-            Canvas c = new Canvas(drawingCanvas.getWidth(), drawingCanvas.getHeight());
+            Canvas c = new Canvas(drawingCanvasWidth, drawingCanvasHeight);
             c.setOnMousePressed(drawingCanvas.getOnMousePressed());
             c.setOnMouseDragged(drawingCanvas.getOnMouseDragged());
             c.setOnMouseReleased(drawingCanvas.getOnMouseReleased());
@@ -430,15 +430,15 @@ public class Controller {
             y1 = event.getY();
 
 
-            if (!toolIsPressed || toolPressed == hboxBrush) {
-                if (event.getButton() == MouseButton.PRIMARY) {
-                    gc.setStroke(primaryColor);
-                    shapeDrawer.setCanvas(c, primaryColor);
-                } else if (event.getButton() == MouseButton.SECONDARY) {
-                    gc.setStroke(secondaryColor);
-                    shapeDrawer.setCanvas(c, secondaryColor);
-                }
-            } else {
+            if (event.getButton() == MouseButton.PRIMARY) {
+                gc.setStroke(primaryColor);
+                shapeDrawer.setCanvas(c, primaryColor);
+            } else if (event.getButton() == MouseButton.SECONDARY) {
+                gc.setStroke(secondaryColor);
+                shapeDrawer.setCanvas(c, secondaryColor);
+            }
+
+            if (toolIsPressed) {
                 if (toolPressed == hboxRubber) {
                     gc.setStroke(Color.WHITE);
                 } else if (toolPressed == hboxPencil) {
@@ -446,7 +446,7 @@ public class Controller {
                 } else if (toolPressed == hboxDropper) {
                     fileSaver = new FileSaver(list);
                     Canvas temp = fileSaver.createCanvas(list);
-                    PixelReader pr = temp.snapshot(null, new WritableImage((int) drawingCanvas.getWidth(), (int) drawingCanvas.getHeight())).getPixelReader();
+                    PixelReader pr = temp.snapshot(null, new WritableImage(drawingCanvasWidth, drawingCanvasHeight)).getPixelReader();
                     Color tempColor = pr.getColor((int) event.getX(), (int) event.getY());
                     shapeDrawer.setCanvas(c, tempColor);
                     defColor1.setStyle("-fx-border-color: gray; -fx-background-color: " + hexToRgb(tempColor));
@@ -482,7 +482,6 @@ public class Controller {
         Handle shapes.
          */
         drawingCanvas.setOnMouseReleased(event -> {
-
             x2 = event.getX();
             y2 = event.getY();
 

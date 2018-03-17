@@ -110,7 +110,7 @@
                   <Insets bottom="3.0" right="-3.0" top="3.0" />
                </padding>
             </Separator>
-            <GridPane prefHeight="84.0" prefWidth="68.0" GridPane.columnIndex="1">
+            <GridPane prefHeight="84.0" prefWidth="100.0" GridPane.columnIndex="1">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -583,7 +583,7 @@
                                     </ImageView>
                                  </children>
                               </HBox>
-                              <HBox fx:id="hboxTriangle" layoutX="66.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0">
+                              <HBox fx:id="hboxTriangle" layoutX="65.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0">
                                  <children>
                                     <ImageView fitHeight="25.0" fitWidth="25.0">
                                        <image>
@@ -600,7 +600,7 @@
                                        </image>
                                     </ImageView>
                                  </children></HBox>
-                              <HBox fx:id="hboxCircle" layoutX="91.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0">
+                              <HBox fx:id="hboxCircle" layoutX="90.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0">
                                  <children>
                                     <ImageView fitHeight="25.0" fitWidth="25.0">
                                        <image>

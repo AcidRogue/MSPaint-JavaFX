@@ -2,21 +2,22 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.TextField ?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Preferences.Controller">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Preferences.PreferencesController">
    <children>
       <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Attributes" />
-      <Text layoutX="15.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Units" />
-      <Text layoutX="192.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Colors" />
-      <GridPane layoutX="15.0" layoutY="30.0" prefHeight="130.0" prefWidth="340.0">
+      <Text layoutX="15.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Units" />
+      <Text layoutX="185.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Colors" />
+      <GridPane layoutX="15.0" layoutY="30.0" prefHeight="85.0" prefWidth="340.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -24,17 +25,27 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="130.0" stroke="BLACK" strokeType="INSIDE" width="340.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="84.0" stroke="BLACK" strokeType="INSIDE" width="340.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </Rectangle>
+            <AnchorPane>
+               <children>
+                  <Text layoutX="3.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Saved:" />
+                  <Text layoutX="3.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size on Disc:" />
+                  <Text layoutX="2.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resolution:" />
+                  <Text fx:id="txaLastSaved" layoutX="121.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No changes" />
+                  <Text fx:id="txaSizeOnDisc" layoutX="121.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No changes" />
+                  <Text fx:id="txaResolution" layoutX="121.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resolution" />
+               </children>
+            </AnchorPane>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </GridPane>
-      <GridPane layoutX="15.0" layoutY="185.0" prefHeight="130.0" prefWidth="340.0">
+      <GridPane layoutX="15.0" layoutY="155.0" prefHeight="103.0" prefWidth="340.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -43,11 +54,25 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="128.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="128.0" stroke="BLACK" strokeType="INSIDE" width="162.0" GridPane.columnIndex="1" />
+            <AnchorPane prefHeight="200.0" prefWidth="154.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="118.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
+                  <RadioButton fx:id="rBtnInches" layoutX="12.0" layoutY="31.0" mnemonicParsing="false" text="Inches">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="rBtnCm" layoutX="12.0" layoutY="56.0" mnemonicParsing="false" selected="true" text="Centimeters" toggleGroup="$group" />
+                  <RadioButton fx:id="rBtnPixels" layoutX="12.0" layoutY="81.0" mnemonicParsing="false" text="Pixels" toggleGroup="$group" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="118.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="170.0" />
+               </children>
+            </AnchorPane>
          </children>
       </GridPane>
-      <GridPane layoutX="15.0" layoutY="318.0" prefHeight="67.0" prefWidth="325.0">
+      <GridPane layoutX="14.0" layoutY="295.0" prefHeight="30.0" prefWidth="340.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="50.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="70.0" />
@@ -59,25 +84,27 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Width:" GridPane.valignment="CENTER" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height:" GridPane.columnIndex="3" GridPane.valignment="CENTER" />
-            <TextField prefWidth="129.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <TextField fx:id="txfWidth" prefWidth="129.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets top="5.0" />
                </GridPane.margin>
             </TextField>
-            <TextField prefHeight="27.0" prefWidth="90.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <TextField fx:id="txfHeight" prefHeight="27.0" prefWidth="90.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets top="5.0" />
                </GridPane.margin>
             </TextField>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Default" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btnDefault" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Default" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets top="2.0" />
+               </GridPane.margin></Button>
          </children>
       </GridPane>
-      <GridPane layoutX="181.0" layoutY="362.0" prefHeight="30.0" prefWidth="162.0">
+      <GridPane layoutX="193.0" layoutY="340.0" prefHeight="30.0" prefWidth="162.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -86,8 +113,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="OK" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btnOK" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="OK" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btnCancel" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>
