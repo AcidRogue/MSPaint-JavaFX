@@ -159,7 +159,7 @@
                         <Insets bottom="10.0" left="6.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </HBox>
-                  <HBox fx:id="hboxDropper" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <HBox fx:id="hboxDropper" prefHeight="27.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="6.0" right="10.0" top="10.0" />
                      </GridPane.margin>
@@ -168,6 +168,18 @@
                            <image>
                               <Image url="@../images/dripper.png" />
                            </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hboxBucket" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView>
+                           <image>
+                              <Image url="@../images/bucket.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="7.0" />
+                           </HBox.margin>
                         </ImageView>
                      </children>
                   </HBox>

@@ -34,8 +34,8 @@ public class FileSaver {
         }
     }
 
-    public Canvas createCanvas(List<Canvas> list) {
-        Canvas canvas = new Canvas(Controller.drawingCanvasWidth, Controller.drawingCanvasHeight);
+    public static Canvas createCanvas(List<Canvas> list) {
+        Canvas canvas = new Canvas(list.get(list.size() - 1).getWidth(), list.get(list.size() - 1).getHeight());
         SnapshotParameters params = new SnapshotParameters();
         params.setFill(Color.TRANSPARENT);
         for (int i = 0; i < list.size(); i++) {

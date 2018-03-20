@@ -10,6 +10,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.*;
 
+import Tools.BucketTool;
+import Tools.DropperTool;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
@@ -21,6 +23,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
@@ -74,15 +77,17 @@ public class Controller {
     @FXML
     private HBox hboxDefColor2;
     @FXML
-    private HBox hboxPencil;
-    @FXML
     private Pane defColor1;
     @FXML
     private Pane defColor2;
     @FXML
+    private HBox hboxPencil;
+    @FXML
     private HBox hboxRubber;
     @FXML
     private HBox hboxDropper;
+    @FXML
+    private HBox hboxBucket;
     @FXML
     private HBox hboxText;
     @FXML
@@ -152,7 +157,7 @@ public class Controller {
     private Color primaryColor = Color.rgb(0, 0, 0);
     private Color secondaryColor = Color.rgb(255, 255, 255);
 
-    private GraphicsContext gc;
+    public static GraphicsContext gc;
 
     private Shapes2D shapeDrawer = new Shapes2D();
 
@@ -182,7 +187,7 @@ public class Controller {
         list = new ArrayList<>();
 
         hboxes = new HBox[]{hbox1, hbox2, hbox3, hbox4, hbox5, hbox6, hbox7, hbox8, hbox9, hbox10, hbox11, hbox12, hbox13, hbox14, hbox15, hbox16, hbox17, hbox18, hbox19, hbox20};
-        tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText, hboxBrush};
+        tools = new HBox[]{hboxPencil, hboxDropper, hboxRubber, hboxText, hboxBrush, hboxBucket};
         shapes = new HBox[]{hboxLine, hboxRectangle, hboxCircle, hboxTriangle, hboxRoundRectangle, hboxPolygon};
         defColors = new HBox[]{hboxDefColor1, hboxDefColor2};
 
@@ -429,7 +434,6 @@ public class Controller {
             x1 = event.getX();
             y1 = event.getY();
 
-
             if (event.getButton() == MouseButton.PRIMARY) {
                 gc.setStroke(primaryColor);
                 shapeDrawer.setCanvas(c, primaryColor);
@@ -438,20 +442,27 @@ public class Controller {
                 shapeDrawer.setCanvas(c, secondaryColor);
             }
 
+            Color wantedColor = (Color)gc.getStroke();
+
             if (toolIsPressed) {
                 if (toolPressed == hboxRubber) {
                     gc.setStroke(Color.WHITE);
                 } else if (toolPressed == hboxPencil) {
                     gc.setLineWidth(0.3 * size);
                 } else if (toolPressed == hboxDropper) {
-                    fileSaver = new FileSaver(list);
-                    Canvas temp = fileSaver.createCanvas(list);
-                    PixelReader pr = temp.snapshot(null, new WritableImage(drawingCanvasWidth, drawingCanvasHeight)).getPixelReader();
-                    Color tempColor = pr.getColor((int) event.getX(), (int) event.getY());
+                    DropperTool dropperTool = new DropperTool(list, (int)event.getX(), (int)event.getY());
+                    Color tempColor = dropperTool.getColor();
                     shapeDrawer.setCanvas(c, tempColor);
-                    defColor1.setStyle("-fx-border-color: gray; -fx-background-color: " + hexToRgb(tempColor));
-                    primaryColor = tempColor;
-                    gc.setStroke(primaryColor);
+                    if (event.getButton() == MouseButton.PRIMARY) {
+                        shapeDrawer.setCanvas(c, primaryColor);
+                        primaryColor = tempColor;
+                        defColor1.setStyle("-fx-border-color: gray; -fx-background-color: " + hexToRgb(tempColor));
+                    } else if (event.getButton() == MouseButton.SECONDARY) {
+                        shapeDrawer.setCanvas(c, secondaryColor);
+                        secondaryColor = tempColor;
+                        defColor2.setStyle("-fx-border-color: gray; -fx-background-color: " + hexToRgb(tempColor));
+                    }
+                    gc.setStroke(tempColor);
                 } else if (toolPressed == hboxPolygon) {
                     if (!polygonIsFirst) {
                         x1 = x2;
@@ -460,6 +471,9 @@ public class Controller {
                         polyX = x1;
                         polyY = y1;
                     }
+                } else if (toolPressed == hboxBucket) {
+                    BucketTool bucketTool = new BucketTool(list, (int)event.getX(), (int)event.getY(), wantedColor);
+                    bucketTool.paint();
                 }
             }
 
@@ -516,9 +530,11 @@ public class Controller {
                 gc.lineTo(x2, y2);
                 gc.stroke();
             }
-
         });
     }
+
+    private PixelReader pr;
+    private PixelWriter pw;
 
     void redo() {
         mItemRedo.setOnAction(e -> {
