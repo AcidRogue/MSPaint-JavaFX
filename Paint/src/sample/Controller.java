@@ -414,6 +414,8 @@ public class Controller {
             c.setOnMousePressed(drawingCanvas.getOnMousePressed());
             c.setOnMouseDragged(drawingCanvas.getOnMouseDragged());
             c.setOnMouseReleased(drawingCanvas.getOnMouseReleased());
+            c.setOnMouseMoved(drawingCanvas.getOnMouseMoved());
+            c.setOnMouseExited(drawingCanvas.getOnMouseExited());
 
             try {
                 if (list.contains(list.get(++counter))) {
@@ -448,7 +450,7 @@ public class Controller {
                 if (toolPressed == hboxRubber) {
                     gc.setStroke(Color.WHITE);
                 } else if (toolPressed == hboxPencil) {
-                    gc.setLineWidth(0.3 * size);
+                    gc.setLineWidth(0.25 * size);
                 } else if (toolPressed == hboxDropper) {
                     DropperTool dropperTool = new DropperTool(list, (int)event.getX(), (int)event.getY());
                     Color tempColor = dropperTool.getColor();
@@ -532,9 +534,6 @@ public class Controller {
             }
         });
     }
-
-    private PixelReader pr;
-    private PixelWriter pw;
 
     void redo() {
         mItemRedo.setOnAction(e -> {

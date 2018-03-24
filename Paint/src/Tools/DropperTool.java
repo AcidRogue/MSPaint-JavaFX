@@ -4,7 +4,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
-import sample.FileSaver;
 
 import java.util.List;
 
@@ -14,11 +13,10 @@ public class DropperTool {
     private int x, y;
 
     public DropperTool(List<Canvas> list, int x, int y){
-        Canvas temp = FileSaver.createCanvas(list);
+        Canvas temp = CanvasCreator.createCanvas(list);
         pr = temp.snapshot(null, new WritableImage((int)temp.getWidth(), (int)temp.getHeight())).getPixelReader();
         this.x = x;
         this.y = y;
-
     }
 
     public Color getColor(){
