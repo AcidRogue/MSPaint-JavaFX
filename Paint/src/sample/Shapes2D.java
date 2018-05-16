@@ -5,11 +5,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Shapes2D {
-    private Canvas c;
     private GraphicsContext gc;
 
     public void setCanvas(Canvas c, Color color){
-        this.c = c;
         gc = c.getGraphicsContext2D();
         gc.setStroke(color);
     }

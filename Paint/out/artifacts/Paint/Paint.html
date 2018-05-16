@@ -1,49 +1,43 @@
-<html>
-    <head>
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <SCRIPT src="https://java.com/js/dtjava.js"></SCRIPT><script>
+<html><head>
+  <SCRIPT src="http://java.com/js/dtjava.js"></SCRIPT>
+<script>
     function launchApplication(jnlpfile) {
         dtjava.launch(            {
                 url : 'Paint.jnlp'
             },
             {
-                javafx : '9.0.4+'
+                javafx : '8.0+'
             },
             {}
         );
         return false;
     }
-</script><script>
-    function javafxEmbedsample() {
+</script>
+
+<script>
+    function javafxEmbedPaint_id() {
         dtjava.embed(
             {
-                id : 'sample',
+                id : 'Paint_id',
                 url : 'Paint.jnlp',
                 placeholder : 'javafx-app-placeholder',
                 width : '600',
                 height : '400'
             },
             {
-                javafx : '9.0.4+'
+                javafx : '8.0+'
             },
             {}
         );
     }
-    
-            <!-- Embed FX application into web page once page is loaded -->
-    dtjava.addOnloadCallback(javafxEmbedsample);
+    <!-- Embed FX application into web page once page is loaded -->
+    dtjava.addOnloadCallback(javafxEmbedPaint_id);
 </script>
-    </head>
-    <body>
-        <h2>
-            Test page for <b>Main</b>
-        </h2>
-        <b>Webstart:</b><a href="Paint.jnlp" onclick="return launchApplication('Paint.jnlp');">click to launch this app as webstart</a>
-        <br>
-        <hr>
-        <br>
-        
-        <!-- Applet will be inserted here -->
-        <div id="javafx-app-placeholder"></div>
-    </body>
-</html>
+
+</head><body>
+<h2>Test page for <b>Paint</b></h2>
+  <b>Webstart:</b> <a href='Paint.jnlp' onclick="return launchApplication('Paint.jnlp');">click to launch this app as webstart</a><br><hr><br>
+
+  <!-- Applet will be inserted here -->
+  <div id='javafx-app-placeholder'></div>
+</body></html>
