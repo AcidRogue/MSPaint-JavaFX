@@ -6,6 +6,8 @@ Author: Kalin Tomanov
 Email: kalin_tomanov@abv.bg
  */
 
+// lol it's a comment
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
